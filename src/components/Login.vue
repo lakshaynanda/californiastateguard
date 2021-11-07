@@ -102,7 +102,7 @@ export default {
         this.dismissCountDown = dismissCountDown
       },
       formPage () {
-        this.$router.push('/')
+        this.$router.push('/form')
       },
       showAlert() {
         this.dismissCountDown = this.dismissSecs

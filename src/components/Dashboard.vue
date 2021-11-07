@@ -146,7 +146,7 @@ export default {
     },
     methods: {
       redirectLogin () {
-        this.$router.push('/Login')
+        this.$router.push('/')
       },
       getDataFiltered () {
         if (this.con1 == true) {
