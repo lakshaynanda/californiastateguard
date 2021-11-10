@@ -379,5 +379,9 @@ path{
   background-color: #26405E;
   width: 105px;
 }
+.custom-control-label[data-v-fc753a6a]:before, .custom-file-label[data-v-fc753a6a], .custom-select[data-v-fc753a6a] {
+  color: white;
+  border: none;
+}
 </style>
 
