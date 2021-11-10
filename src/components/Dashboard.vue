@@ -31,6 +31,7 @@
         <b-form inline>
             <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
             <b-form-input
+            style="border: 1px solid white"
             id="inline-form-input-name"
             class="mb-2 mr-sm-2 mb-sm-0"
             placeholder="Enter name"
