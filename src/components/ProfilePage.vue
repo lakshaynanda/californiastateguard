@@ -238,7 +238,7 @@ export default {
     },
     methods: {
       redirectLogin () {
-        this.$router.push('/Login')
+        this.$router.push('/')
       },
       autho () {
         axios({

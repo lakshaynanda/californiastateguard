@@ -22,8 +22,8 @@
               label-class="font-weight-bold pt-0"
               class="mb-0"
             > -->
-            <b-icon v-if="!editable" style="float:right; margin: 13%" class="button" icon="pencil-square" @click="editable = true"></b-icon>
-            <b-icon v-if="editable" style="float:right; margin: 13%" class="button" icon="check2" @click="editable = false"></b-icon>
+            <!-- <b-icon v-if="!editable" style="float:right; margin: 13%" class="button" icon="pencil-square" @click="editable = true"></b-icon>
+            <b-icon v-if="editable" style="float:right; margin: 13%" class="button" icon="check2" @click="editable = false"></b-icon> -->
               <b-form-group
                 label="First Name:"
                 label-for="nested-street-1"
@@ -102,8 +102,8 @@
         </b-card-header>
         <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
           <b-card-body>
-            <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
-        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
           <b-form-group
             label="Tactics, Techniques and Procedures:"
             label-for="nested-street"
@@ -232,7 +232,7 @@ export default {
     },
     methods: {
       redirectLogin () {
-        this.$router.push('/Login')
+        this.$router.push('/')
       },
       autho () {
         axios({
