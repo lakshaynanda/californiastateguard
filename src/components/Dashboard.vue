@@ -41,6 +41,7 @@
             <b-button v-if="con1" class="bbut" variant="info" @click="con1 = !con1">OR</b-button> -->
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Rank = </label>
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['Service Member', 'Training Team', 'Command Staff']"
@@ -53,6 +54,7 @@
             <b-button v-if="con2" class="bbut" variant="info" @click="con2 = !con2">OR</b-button>
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Skill = </label>
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['loe__c', 'tac__c', 'it__c']"
@@ -61,6 +63,7 @@
             ></b-form-select> = 
             <!-- <v-select v-model="skillChosen" :options="['loe__c', 'tac__c', 'it__c']"></v-select> = -->
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['None', 'Novice', 'Proficient', 'Expert']"
