@@ -31,6 +31,7 @@
         <b-form inline>
             <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
             <b-form-input
+            style="border: 0.5px solid white"
             id="inline-form-input-name"
             class="mb-2 mr-sm-2 mb-sm-0"
             placeholder="Enter name"
@@ -41,6 +42,7 @@
             <b-button v-if="con1" class="bbut" variant="info" @click="con1 = !con1">OR</b-button> -->
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Rank = </label>
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['Service Member', 'Training Team', 'Command Staff']"
@@ -53,6 +55,7 @@
             <b-button v-if="con2" class="bbut" variant="info" @click="con2 = !con2">OR</b-button>
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Skill = </label>
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['loe__c', 'tac__c', 'it__c']"
@@ -61,6 +64,7 @@
             ></b-form-select> = 
             <!-- <v-select v-model="skillChosen" :options="['loe__c', 'tac__c', 'it__c']"></v-select> = -->
             <b-form-select
+            style="color: white"
             id="inline-form-custom-select-pref"
             class="mb-2 mr-sm-2 mb-sm-0"
             :options="['None', 'Novice', 'Proficient', 'Expert']"
@@ -374,10 +378,14 @@ path{
   color: white;
 }
 .custom-control-label[data-v-aae30ed8]::before, .custom-file-label[data-v-aae30ed8], .custom-select[data-v-aae30ed8] {
-  color: white;
+  color: white !important;
   border: none;
   background-color: #26405E;
   width: 105px;
+}
+.custom-control-label[data-v-fc753a6a]:before, .custom-file-label[data-v-fc753a6a], .custom-select[data-v-fc753a6a] {
+  color: white;
+  border: none;
 }
 </style>
 

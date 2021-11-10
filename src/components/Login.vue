@@ -76,12 +76,29 @@ export default {
         alertT: false
       }
     },
+    mounted() {
+    },
     created() {
       this.autho()
+      this.onloadfunc()
       // this.getUserData()
     },
     methods: {
-        
+      onloadfunc () {
+        if( window.localStorage )
+        {
+          //check if reloaded once already 
+          if( !localStorage.getItem('firstLoad') )
+          {
+          //if not reloaded once, then set firstload to true
+            localStorage['firstLoad'] = true;
+            //reload the webpage using reload() method
+            window.location.reload();
+          }  
+          else 
+            localStorage.removeItem('firstLoad');
+        }
+      },
       login() {
         mainApi.checkLogin(this.name, this.password).then((response) => {
           this.$store.commit('STORE_EMAIL', this.name)
