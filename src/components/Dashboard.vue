@@ -374,7 +374,7 @@ path{
   color: white;
 }
 .custom-control-label[data-v-aae30ed8]::before, .custom-file-label[data-v-aae30ed8], .custom-select[data-v-aae30ed8] {
-  color: white;
+  color: white !important;
   border: none;
   background-color: #26405E;
   width: 105px;
