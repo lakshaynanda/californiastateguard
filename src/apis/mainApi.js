@@ -5,34 +5,37 @@ export default class UserForm {
     return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
   }
 
-  static getFilteredData (skill, skillVal, rankVal,firstname, con1, con2) {
-    var skillEquation = ''
-    var rankEquation = ''
-    var nameEquation = ''
-    if(skillVal != '') {
+  static getFilteredData (skill, skillVal, rankVal, con2) {
+    var skillEquation = ""
+    var rankEquation = ""
+    // var nameEquation = ''
+    if(skillVal != "") {
       skillEquation = skill +" ='"+ skillVal +"'" 
     }
-    if(rankVal != '' || rankVal != null) {
+    if(rankVal != "" || rankVal != null) {
       rankEquation = "RANK__c ='"+ rankVal +"'"
     } else {
-      rankEquation = ''
+      rankEquation = ""
     }
-    if ((rankVal != '' || rankVal != null) && (skillVal != '' || skillVal != null)) {
+    console.log("test", (skillVal.length != 0))
+    if ((rankVal.length != 0) && (skillVal.length != 0)) {
       rankEquation += " " + con2 + " "
-    } else {
-      rankEquation = ''
     }
-    if (firstname != '' || firstname != null) {
-      nameEquation = "FirstName__c ='" + firstname +"'"
-    } else {
-      nameEquation = ''
+    if ((rankVal.length == 0) && (skillVal.length != 0)) {
+      skillEquation = skill +" ='"+ skillVal +"'"
+      rankEquation = ""
     }
+    // if (firstname != '' || firstname != null) {
+    //   nameEquation = "FirstName__c ='" + firstname +"'"
+    // } else {
+    //   nameEquation = ''
+    // }
 
-    if ((firstname != '' || firstname != null) && (rankVal != '' || rankVal != null)) {
-      nameEquation += " " + con1 + " "
-    } else {
-      nameEquation = ''
-    }
+    // if ((firstname != '' || firstname != null) && (rankVal != '' || rankVal != null)) {
+    //   nameEquation += " " + con1 + " "
+    // } else {
+    //   nameEquation = ''
+    // }
     // if(skillVal != null) {
     //   skillEquation = skill +" ='"+ skillVal +"'" 
     // }
@@ -58,8 +61,7 @@ export default class UserForm {
     // } else {
     //   nameEquation = ''
     // }
-    
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE "+ nameEquation + rankEquation + skillEquation);
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE "+ rankEquation + skillEquation);
   }
 
   static checkLogin (name, password) {

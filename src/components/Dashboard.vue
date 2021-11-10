@@ -48,9 +48,9 @@
             :value="null"
             ></b-form-select>
             <!-- <v-select v-model="rankVal" :options="['Service Member', 'Training Team', 'Command Staff']"></v-select> -->
-            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getRank">Search By Rank</b-button>
-            <!-- <b-button v-if="!con2" class="bbut" variant="success" @click="con2 = !con2">AND</b-button>
-            <b-button v-if="con2" class="bbut" variant="info" @click="con2 = !con2">OR</b-button> -->
+            <!-- <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getRank">Search By Rank</b-button> -->
+            <b-button v-if="!con2" class="bbut" variant="success" @click="con2 = !con2">AND</b-button>
+            <b-button v-if="con2" class="bbut" variant="info" @click="con2 = !con2">OR</b-button>
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Skill = </label>
             <b-form-select
             id="inline-form-custom-select-pref"
@@ -68,7 +68,7 @@
             :value="null"
             ></b-form-select>
             <!-- <v-select v-model="skillVal" :options="['None', 'Novice', 'Proficient', 'Expert']"></v-select> -->
-            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getSkill">Search By Skill</b-button>
+            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getDataFiltered">Search</b-button>
             <b-button class="bbut" variant="danger" @click="getUserData">Reset</b-button>
         </b-form>
       </b-card>
@@ -149,18 +149,19 @@ export default {
         this.$router.push('/')
       },
       getDataFiltered () {
-        if (this.con1 == true) {
-          this.condition1 = 'OR'
-        } else {
-          this.condition1 = 'AND'
-        }
+        console.log(this.skillChosen)
+        // if (this.con1 == true) {
+        //   this.condition1 = 'OR'
+        // } else {
+        //   this.condition1 = 'AND'
+        // }
         if (this.con2 == true) {
           this.condition2 = 'OR'
         } else {
           this.condition2 = 'AND'
         }
-        mainApi.getFilteredData(this.skillChosen, this.skillVal, this.rankVal,this.searchName, this.condition1, this.condition2).then((response) => {
-          console.log(response)
+        mainApi.getFilteredData(this.skillChosen, this.skillVal, this.rankVal, this.condition2).then((response) => {
+          this.users = response.data.records
         })
       },
       autho () {
@@ -274,7 +275,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .bbut {
-    margin: 1%;
+    margin: 0.5%;
 }
 header.card-header{
   background-color: #19365D;
