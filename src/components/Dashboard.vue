@@ -80,6 +80,12 @@
       <b-card class="mt-3" style="color: white; font-weight: 80" header="Form Data Result">
         <!-- <pre v-if="usersPresent" class="m-0">Name: {{ user.Name }} Age:{{ user.Age__c }} Rank: {{ user.Rank__c }} Duty: {{ user.Duty__c }} TAC: {{ user.TAC__c }} LOE:{{ user.LoE__c }} IT:{{ user.IT__c }}</pre>
         <pre v-else class="m-0">Service Member Does not Exist</pre> -->
+        <div style="width: 35%; height: 50%; display: inline-block; float: left;background: #19365D">
+          <piechart :fir = "fir" :key="reren"></piechart>
+        </div>
+        <div style="width: 35%; height: 50%;display: inline-block; background: #19365D">
+          <donut :fir = "fir" :key="reren"></donut>
+        </div>
         <download-csv
             style="float:right; margin: 1%; cursor: pointer"
             :data = "users">
@@ -95,13 +101,46 @@
 import mainApi from '../apis/mainApi'
 import qs from 'qs'
 import axios from 'axios'
+import piechart from '../components/piechart.vue'
+import donut from '../components/donut.vue'
 // import authApi from '../apis/auth'
 export default {
+  components: {
+    piechart,
+    donut
+  },
   data() {
       return {
+        fir: [
+          {
+            "country": '',
+            "litres": ''
+          },
+          {
+            "country": '',
+            "litres": ''
+          },
+          {
+            "country": '',
+            "litres": ''
+          },
+        ],
+        ser: {
+          "country": '',
+          "litres": ''
+        },
+        com: {
+          "country": '',
+          "litres": ''
+        },
+        tra: {
+          "country": '',
+          "litres": ''
+        },
         editable: true,
         usersPresent: false,
         users: [],
+        reren: 0,
         serviceMem: '',
         con1: true,
         condition1: '',
@@ -148,7 +187,13 @@ export default {
       this.getUserData()
       this.countsGet()
     },
+    mounted() {
+      this.countsGet()
+    },
     methods: {
+      rerender () {
+        this.reren += 1
+      },
       redirectLogin () {
         this.$router.push('/')
       },
@@ -201,14 +246,21 @@ export default {
       },
       countsGet() {
         mainApi.getCountsService().then((response) => {
+            this.fir[0].country = 'Service Member'
+            this.fir[0].litres = response.data.totalSize
             this.serviceMem = response.data.totalSize
         })
         mainApi.getCountsCommand().then((response) => {
+            this.fir[1].country = 'Command Staff'
+            this.fir[1].litres = response.data.totalSize
             this.commandStaff = response.data.totalSize
         })
         mainApi.getCountsTraining().then((response) => {
+            this.fir[2].country = 'Training Team'
+            this.fir[2].litres = response.data.totalSize
             this.trainingTeam = response.data.totalSize
         })
+        this.rerender()
       },
       getServiceMemberInd() {
         mainApi.getServiceMemberByName(this.searchName).then((response) => {
