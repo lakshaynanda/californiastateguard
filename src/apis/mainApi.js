@@ -5,6 +5,13 @@ export default class UserForm {
     return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
   }
 
+  static getActive () {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE DUTY__C = 'Active'")
+  }
+
+   static getInactive () {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE DUTY__C = 'Inactive'")
+   }
   static getFilteredData (skill, skillVal, rankVal, con2) {
     var skillEquation = ""
     var rankEquation = ""

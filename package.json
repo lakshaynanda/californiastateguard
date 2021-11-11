@@ -9,6 +9,7 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.22",
     "axios": "^0.22.0",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.2",
