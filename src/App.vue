@@ -7,7 +7,29 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  mounted() {
+  },
+  methods: {
+  //   onloadfunc () {
+  //       if( window.localStorage )
+  //       {
+  //         //check if reloaded once already 
+  //         if( !localStorage.getItem('firstLoad') )
+  //         {
+  //         //if not reloaded once, then set firstload to true
+  //           localStorage['firstLoad'] = true;
+  //           //reload the webpage using reload() method
+  //           window.location.reload();
+  //         }  
+  //         else 
+  //           localStorage.removeItem('firstLoad');
+  //       }
+  //     }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

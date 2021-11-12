@@ -80,12 +80,12 @@
       <b-card class="mt-3" style="color: white; font-weight: 80" header="Form Data Result">
         <!-- <pre v-if="usersPresent" class="m-0">Name: {{ user.Name }} Age:{{ user.Age__c }} Rank: {{ user.Rank__c }} Duty: {{ user.Duty__c }} TAC: {{ user.TAC__c }} LOE:{{ user.LoE__c }} IT:{{ user.IT__c }}</pre>
         <pre v-else class="m-0">Service Member Does not Exist</pre> -->
-        <div style="width: 35%; height: 50%; display: inline-block; float: left;background: #19365D">
-          <piechart :fir = "fir" :key="reren"></piechart>
+        <!-- <div style="width: 35%; height: 50%; display: inline-block; float: left;background: #19365D">
+          <piechart :fir = "fir" :key="check"></piechart>
         </div>
         <div style="width: 35%; height: 50%;display: inline-block; background: #19365D">
-          <donut :fir = "fir" :key="reren"></donut>
-        </div>
+          <donut :fir = "fir" :key="check"></donut>
+        </div> -->
         <download-csv
             style="float:right; margin: 1%; cursor: pointer"
             :data = "users">
@@ -101,13 +101,13 @@
 import mainApi from '../apis/mainApi'
 import qs from 'qs'
 import axios from 'axios'
-import piechart from '../components/piechart.vue'
-import donut from '../components/donut.vue'
+// import piechart from '../components/piechart.vue'
+// import donut from '../components/donut.vue'
 // import authApi from '../apis/auth'
 export default {
   components: {
-    piechart,
-    donut
+    // piechart,
+    // donut
   },
   data() {
       return {
@@ -123,7 +123,7 @@ export default {
           {
             "country": '',
             "litres": ''
-          },
+          }
         ],
         ser: {
           "country": '',
@@ -137,6 +137,7 @@ export default {
           "country": '',
           "litres": ''
         },
+        check: 0,
         editable: true,
         usersPresent: false,
         users: [],
@@ -188,11 +189,25 @@ export default {
       this.countsGet()
     },
     mounted() {
-      this.countsGet()
+      mainApi.getCountsService().then((response) => {
+            this.fir[0].country = 'Service Member'
+            this.fir[0].litres = response.data.totalSize
+            this.serviceMem = response.data.totalSize
+        })
+        mainApi.getCountsCommand().then((response) => {
+            this.fir[1].country = 'Command Staff'
+            this.fir[1].litres = response.data.totalSize
+            this.commandStaff = response.data.totalSize
+        })
+        mainApi.getCountsTraining().then((response) => {
+            this.fir[2].country = 'Training Team'
+            this.fir[2].litres = response.data.totalSize
+            this.trainingTeam = response.data.totalSize
+        })
     },
     methods: {
-      rerender () {
-        this.reren += 1
+      forceRerender () {
+        this.check += 1
       },
       redirectLogin () {
         this.$router.push('/')
@@ -284,6 +299,10 @@ export default {
         mainApi.getServiceMembers().then((response) => {
           this.usersPresent = true
           this.users = response.data.records
+          this.searchName = ''
+          this.rankVal = ''
+          this.skillChosen = ''
+          this.skillVal = ''
         })
       },
       postUserData() {

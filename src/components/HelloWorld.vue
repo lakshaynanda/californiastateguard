@@ -261,22 +261,47 @@ export default {
         })
       },
       postUserData() {
-        const data = {
-          age__c: this.form.age,
-          firstName__c: this.form.first_name,
-          lastName__c: this.form.last_name,
-          name: this.form.name,
-          password__c: this.form.password,
-          rank__c: this.form.rank,
-          duty__c: this.form.duty,
-          tac__c: this.form.tac,
-          loe__c: this.form.loe,
-          it__c: this.form.it
+        if (this.form.rank == 'Service Member') {
+          const data = {
+            age__c: this.form.age,
+            firstName__c: this.form.first_name,
+            lastName__c: this.form.last_name,
+            name: this.form.name,
+            password__c: this.form.password,
+            rank__c: this.form.rank,
+            duty__c: this.form.duty,
+            tac__c: this.form.tac,
+            loe__c: this.form.loe,
+            it__c: this.form.it
+          }
+          mainApi.postServiceMember(data).then((response) => {
+            console.log(response)
+            this.submitted = true
+          })
+        } else {
+          const data = {
+            age__c: this.form.age,
+            firstName__c: this.form.first_name,
+            lastName__c: this.form.last_name,
+            name: this.form.name,
+            password__c: this.form.password,
+            rank__c: this.form.rank,
+            duty__c: this.form.duty,
+            tac__c: this.form.tac,
+            loe__c: this.form.loe,
+            it__c: this.form.it,
+            isAdmin__c: true
+          }
+          mainApi.postServiceMember(data).then((response) => {
+            console.log(response)
+            this.submitted = true
+          })
         }
-        mainApi.postServiceMember(data).then((response) => {
-          console.log(response)
-          this.submitted = true
-        })
+        
+        // mainApi.postServiceMember(data).then((response) => {
+        //   console.log(response)
+        //   this.submitted = true
+        // })
       },
       showN () {
         console.log(this.name)
