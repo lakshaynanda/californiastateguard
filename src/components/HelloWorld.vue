@@ -98,32 +98,167 @@
       <br>
       <b-card bg-variant="light">
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle.accordion-2 variant="info">Cyber Analyst I - Skill Ratings</b-button>
+          <b-button block v-b-toggle.accordion-10 variant="info">Section 6 of 7 - Cyber Tools Rating</b-button>
         </b-card-header>
-        <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
+        <b-collapse id="accordion-10" visible accordion="my-accordion10" role="tabpanel">
           <b-card-body>
             <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
         <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
           <b-form-group
-            label="Tactics, Techniques and Procedures:"
+            label="Malware Detection Proficiency PC (Windows):"
             label-for="nested-street"
             label-cols-sm="3"
-            v-slot="{ ariaDescribedby1 }"
+            v-slot="{ ad1 }"
             label-align-sm="right"
           >
             <b-form-radio-group
               v-if="editable2"
-              id="radio-group-1"
-              v-model="form.tac"
-              :options="options"
-              :aria-describedby="ariaDescribedby1"
-              name="radio-options"
+              id="ct1"
+              v-model="form.Malware_Detection_PC_Windows"
+              :options="options3"
+              :aria-describedby="ad1"
+              name="ct1"
             ></b-form-radio-group>
-            <p v-else>{{ form.tac }}</p>
+            <p v-else>{{ form.Malware_Detection_PC_Windows }}</p>
           </b-form-group>
-
           <b-form-group
-            label="Ability to perform coordinated actions to LoE"
+            label="Malware Detection Proficiency PC (Mac):"
+            label-for="nested-city"
+            v-slot="{ ad2 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct2"
+              v-model="form.Malware_Detection_PC_Mac"
+              :options="options3"
+              :aria-describedby="ad2"
+              name="ct2"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Malware_Detection_PC_Mac }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Malware Detection Proficiency PC (Linux):"
+            label-for="nested-state"
+            v-slot="{ ad3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct3"
+              v-model="form.Malware_Detection_PC_Linux"
+              :options="options3"
+              :aria-describedby="ad3"
+              name="ct3"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Malware_Detection_PC_Linux }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Malware Detection Proficiency Mobile Device (Android):"
+            label-for="nested-state"
+            v-slot="{ ad4 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct4"
+              v-model="form.Malware_Detection_Mobile_Android"
+              :options="options3"
+              :aria-describedby="ad4"
+              name="ct4"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Malware_Detection_Mobile_Android }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Malware Detection Proficiency Mobile Device (IOS):"
+            label-for="nested-state"
+            v-slot="{ ad5 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct5"
+              v-model="form.Malware_Detection_Mobile_IOS"
+              :options="options3"
+              :aria-describedby="ad5"
+              name="ct5"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Malware_Detection_Mobile_IOS }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Proficiency in setting up VPNs:"
+            label-for="nested-state"
+            v-slot="{ ad6 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct6"
+              v-model="form.Setting_up_VPNs"
+              :options="options3"
+              :aria-describedby="ad6"
+              name="ct6"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Setting_up_VPNs }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Proficiency in setting up secure wired LAN:"
+            label-for="nested-state"
+            v-slot="{ ad7 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct7"
+              v-model="form.Setting_up_secure_wired_LAN"
+              :options="options3"
+              :aria-describedby="ad7"
+              name="ct7"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Setting_up_secure_wired_LAN }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Proficiency in setting up secure wireless LAN:"
+            label-for="nested-state"
+            v-slot="{ ad8 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct9"
+              v-model="form.Setting_up_secure_wireless_LAN"
+              :options="options3"
+              :aria-describedby="ad8"
+              name="ct9"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Setting_up_secure_wireless_LAN }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Proficiency in configuring and hardening networks:"
+            label-for="nested-state"
+            v-slot="{ ad9 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct10"
+              v-model="form.Configure_and_harden_networks"
+              :options="options3"
+              :aria-describedby="ad9"
+              name="ct10"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Configure_and_harden_networks }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Aircrack ng:"
             label-for="nested-city"
             v-slot="{ ariaDescribedby2 }"
             label-cols-sm="3"
@@ -131,17 +266,16 @@
           >
             <b-form-radio-group
               v-if="editable2"
-              id="radio-group-2"
-              v-model="form.loe"
-              :options="options"
+              id="ct11"
+              v-model="form.Aircrack_ng"
+              :options="options1"
               :aria-describedby="ariaDescribedby2"
-              name="radio-options2"
+              name="ct11"
             ></b-form-radio-group>
-            <p v-else>{{ form.loe }}</p>
+            <p v-else>{{ form.Aircrack_ng }}</p>
           </b-form-group>
-
           <b-form-group
-            label="Knowledge of California State's IT Roles and Requirements:"
+            label="Autopsy:"
             label-for="nested-state"
             v-slot="{ ariaDescribedby3 }"
             label-cols-sm="3"
@@ -149,11 +283,1870 @@
           >
             <b-form-radio-group
               v-if="editable2"
-              id="radio-group-3"
-              v-model="form.it"
+              id="ct12"
+              v-model="form.Autopsy"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct12"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Autopsy }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Cisco:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct13"
+              v-model="form.Cisco"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct13"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Cisco }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Darktrace:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct14"
+              v-model="form.Darktrace"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct14"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Darktrace }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Elasticsearch:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct15"
+              v-model="form.Elasticsearch"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct16"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Elasticsearch }}</p>
+          </b-form-group>
+          <b-form-group
+            label="EnCase:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct17"
+              v-model="form.EnCase"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct17"
+            ></b-form-radio-group>
+            <p v-else>{{ form.EnCase }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Eyewitness:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct18"
+              v-model="form.Eyewitness"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct18"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Eyewitness }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Forensic Tool Kit:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct19"
+              v-model="form.Forensic_Tool_Kit"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct19"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Forensic_Tool_Kit }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Kali Linux:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct20"
+              v-model="form.Kali_Linux"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct20"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Kali_Linux }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Kibana:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct21"
+              v-model="form.Kibana"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct21"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Kibana }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Logstash:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct22"
+              v-model="form.Logstash"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct22"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Logstash }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Logzilla:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct23"
+              v-model="form.Logzilla"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct23"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Logzilla }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Metasploit:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct24"
+              v-model="form.Metasploit"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct24"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Metasploit }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Nessus:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct25"
+              v-model="form.Nessus"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct25"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Nessus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="NetSim:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct26"
+              v-model="form.NetSim"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct26"
+            ></b-form-radio-group>
+            <p v-else>{{ form.NetSim }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Nmap:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct27"
+              v-model="form.Nmap"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct27"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Nmap }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Octopussy:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct28"
+              v-model="form.Octopussy"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct28"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Octopussy }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Packet Tracer:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct29"
+              v-model="form.Packet_Tracer"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct29"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Packet_Tracer }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Palo Alto:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct30"
+              v-model="form.Palo_Alto"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct30"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Palo_Alto }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Security Onion:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct31"
+              v-model="form.Security_Onion"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct31"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Security_Onion }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Shodan:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct32"
+              v-model="form.Shodan"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct32"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Shodan }}</p>
+          </b-form-group>
+          <b-form-group
+            label="SIFT:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct33"
+              v-model="form.SIFT"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct33"
+            ></b-form-radio-group>
+            <p v-else>{{ form.SIFT }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Snort:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct34"
+              v-model="form.Snort"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct34"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Snort }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Sophos:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct35"
+              v-model="form.Sophos"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct35"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Sophos }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Splunk:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct36"
+              v-model="form.Splunk"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct36"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Splunk }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Sumologic:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct37"
+              v-model="form.Sumologic"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct37"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Sumologic }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Suricata:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct38"
+              v-model="form.Suricata"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct38"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Suricata }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Wireshark:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="ct39"
+              v-model="form.Wireshark"
+              :options="options1"
+              :aria-describedby="ariaDescribedby3"
+              name="ct39"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Wireshark }}</p>
+          </b-form-group>
+          </b-card-body>
+        </b-collapse>
+        <!-- <b-form-group
+          label-cols-lg="3"
+          label="Skills Level"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        > -->
+        
+        <!-- </b-form-group> -->
+      </b-card>
+      <br>
+      <b-card bg-variant="light">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-13 variant="info">Section 6 of 7 - Additional Cyber Defense Analyst and Incident Responder (KSAs)</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-13" visible accordion="my-accordion13" role="tabpanel">
+          <b-card-body>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
+          <b-form-group
+            label="Knowledge of laws, regulations, policies, and ethics as they relate to cybersecurity and privacy:"
+            label-for="nested-street"
+            label-cols-sm="3"
+            v-slot="{ ir1 }"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt1"
+              v-model="form.K0004"
+              :options="options3"
+              :aria-describedby="ir1"
+              name="zt1"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0004 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cybersecurity and privacy principles:"
+            label-for="nested-city"
+            v-slot="{ ir2 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt2"
+              v-model="form.K0003"
+              :options="options3"
+              :aria-describedby="ir2"
+              name="zt2"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0003 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of specific operational impacts of cybersecurity lapses:"
+            label-for="nested-state"
+            v-slot="{ ir3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt3"
+              v-model="form.K0006"
+              :options="options3"
+              :aria-describedby="ir3"
+              name="zt3"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0006 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of computer algorithms:"
+            label-for="nested-state"
+            v-slot="{ ir4 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt4"
+              v-model="form.K0015"
+              :options="options3"
+              :aria-describedby="ir4"
+              name="zt4"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0015 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of encryption algorithms:"
+            label-for="nested-state"
+            v-slot="{ ir5 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt5"
+              v-model="form.K0018"
+              :options="options3"
+              :aria-describedby="ir5"
+              name="zt5"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0018 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cryptography and cryptographic key management concept:"
+            label-for="nested-state"
+            v-slot="{ ir6 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt6"
+              v-model="form.K0019"
+              :options="options3"
+              :aria-describedby="ir6"
+              name="zt6"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0019 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of business continuity and disaster recovery continuity of operations plans:"
+            label-for="nested-state"
+            v-slot="{ ir7 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt7"
+              v-model="form.K0026"
+              :options="options3"
+              :aria-describedby="ir7"
+              name="zt7"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0026 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of vulnerability information dissemination sources (e.g., alerts, advisories, errata, and bulletins):"
+            label-for="nested-state"
+            v-slot="{ ir8 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt9"
+              v-model="form.K0040"
+              :options="options3"
+              :aria-describedby="ir8"
+              name="zt9"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0040 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of incident categories, incident responses, and timelines for responses:"
+            label-for="nested-state"
+            v-slot="{ ir9 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt10"
+              v-model="form.K0041"
+              :options="options3"
+              :aria-describedby="ir9"
+              name="zt10"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0041 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of incident response and handling methodologies:"
+            label-for="nested-city"
+            v-slot="{ ir10 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt11"
+              v-model="form.K0042"
+              :options="options3"
+              :aria-describedby="ir10"
+              name="zt11"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0042 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cybersecurity and privacy principles and organizational requirements (relevant to confidentiality, integrity, availability, authentication, non-repudiation):"
+            label-for="nested-state"
+            v-slot="{ ir11 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt12"
+              v-model="form.K0044"
+              :options="options3"
+              :aria-describedby="ir11"
+              name="zt12"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0044 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of intrusion detection methodologies and techniques for detecting host and network-based intrusions:"
+            label-for="nested-state"
+            v-slot="{ ir12 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt13"
+              v-model="form.K0046"
+              :options="options3"
+              :aria-describedby="ir12"
+              name="zt13"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0046 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of information technology (IT) security principles and methods (e.g., firewalls, demilitarized zones, encryption).:"
+            label-for="nested-state"
+            v-slot="{ ir13 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt14"
+              v-model="form.K0049"
+              :options="options3"
+              :aria-describedby="ir13"
+              name="zt14"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0049 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of new and emerging information technology (IT) and cybersecurity technologies:"
+            label-for="nested-state"
+            v-slot="{ ir14 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt15"
+              v-model="form.K0059"
+              :options="options3"
+              :aria-describedby="ir14"
+              name="zt16"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0059 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of system and application security threats and vulnerabilities (e.g., buffer overflow, mobile code, cross-site scripting, Procedural Language/Structured Query Language [PL/SQL] and injections, race conditions, covert channel, replay, return-oriented attacks, malicious code):"
+            label-for="nested-state"
+            v-slot="{ ir15 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt17"
+              v-model="form.K0070"
+              :options="options3"
+              :aria-describedby="ir15"
+              name="zt17"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0070 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of telecommunications concepts (e.g., Communications channel, Systems Link Budgeting, Spectral efficiency, Multiplexing):"
+            label-for="nested-state"
+            v-slot="{ ir16 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt18"
+              v-model="form.K0093"
+              :options="options3"
+              :aria-describedby="ir16"
+              name="zt18"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0093 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of Insider Threat investigations, reporting, investigative tools and laws/regulations:"
+            label-for="nested-state"
+            v-slot="{ ir17 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt19"
+              v-model="form.K0107"
+              :options="options3"
+              :aria-describedby="ir17"
+              name="zt19"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0107 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of file extensions (e.g., .dll, .bat, .zip, .pcap, .gzip):"
+            label-for="nested-state"
+            v-slot="{ ir18 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt20"
+              v-model="form.K0116"
+              :options="options3"
+              :aria-describedby="ir18"
+              name="zt20"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0116 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of collection management processes, capabilities, and limitations:"
+            label-for="nested-state"
+            v-slot="{ ir19 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt21"
+              v-model="form.K0142"
+              :options="options3"
+              :aria-describedby="ir19"
+              name="zt21"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0142 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cyber defense and information security policies, procedures, and regulations:"
+            label-for="nested-state"
+            v-slot="{ ir20 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt22"
+              v-model="form.K0157"
+              :options="options3"
+              :aria-describedby="ir20"
+              name="zt22"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0157 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of the common attack vectors on the network layer:"
+            label-for="nested-state"
+            v-slot="{ ir21 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt23"
+              v-model="form.K0160"
+              :options="options3"
+              :aria-describedby="ir21"
+              name="zt23"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0160 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of different classes of attacks (e.g., passive, active, insider, close-in, distribution attacks):"
+            label-for="nested-state"
+            v-slot="{ ir22 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt24"
+              v-model="form.K0161"
+              :options="options3"
+              :aria-describedby="ir22"
+              name="zt24"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0161 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cyber attackers (e.g., script kiddies, insider threat, non-nation state sponsored, and nation sponsored):"
+            label-for="nested-state"
+            v-slot="{ ir23 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt25"
+              v-model="form.K0162"
+              :options="options3"
+              :aria-describedby="ir23"
+              name="zt25"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0162 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of cyber attack stages (e.g., reconnaissance, scanning, enumeration, gaining access, escalation of privileges, maintaining access, network exploitation, covering tracks):"
+            label-for="nested-state"
+            v-slot="{ ir24 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt26"
+              v-model="form.K0177"
+              :options="options3"
+              :aria-describedby="ir24"
+              name="zt26"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0177 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of network systems management principles, models, methods (e.g., end-to-end systems performance monitoring), and tools.:"
+            label-for="nested-state"
+            v-slot="{ ir25 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt27"
+              v-model="form.K0180"
+              :options="options3"
+              :aria-describedby="ir25"
+              name="zt27"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0180 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of encryption methodologies:"
+            label-for="nested-state"
+            v-slot="{ ir26 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt28"
+              v-model="form.K0190"
+              :options="options3"
+              :aria-describedby="ir26"
+              name="zt28"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0190 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of signature implementation impact for viruses, malware, and attacks:"
+            label-for="nested-state"
+            v-slot="{ ir27 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt29"
+              v-model="form.K0191"
+              :options="options3"
+              :aria-describedby="ir27"
+              name="zt29"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0191 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of Windows/Unix ports and services:"
+            label-for="nested-state"
+            v-slot="{ ir28 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt30"
+              v-model="form.K0192"
+              :options="options3"
+              :aria-describedby="ir28"
+              name="zt30"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0192 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of security models (e.g., Bell-LaPadula model, Biba integrity model, Clark-Wilson integrity model):"
+            label-for="nested-state"
+            v-slot="{ ir29 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt31"
+              v-model="form.K0203"
+              :options="options3"
+              :aria-describedby="ir29"
+              name="zt31"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0203 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of malware analysis concepts and methodologies:"
+            label-for="nested-state"
+            v-slot="{ ir30 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt32"
+              v-model="form.K0259"
+              :options="options3"
+              :aria-describedby="ir30"
+              name="zt32"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0259 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of an organization's information classification program and procedures for information compromise:"
+            label-for="nested-state"
+            v-slot="{ ir31 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt33"
+              v-model="form.K0287"
+              :options="options3"
+              :aria-describedby="ir31"
+              name="zt33"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0287 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of embedded systems:"
+            label-for="nested-state"
+            v-slot="{ ir32 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt34"
+              v-model="form.K0322"
+              :options="options3"
+              :aria-describedby="ir32"
+              name="zt34"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0322 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Knowledge of Application Security Risks (e.g. Open Web Application Security Project Top 10 list):"
+            label-for="nested-state"
+            v-slot="{ ir33 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt35"
+              v-model="form.K0624"
+              :options="options3"
+              :aria-describedby="ir33"
+              name="zt35"
+            ></b-form-radio-group>
+            <p v-else>{{ form.K0624 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Skill in developing and deploying signatures:"
+            label-for="nested-state"
+            v-slot="{ ir34 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt36"
+              v-model="form.S0020"
+              :options="options3"
+              :aria-describedby="ir34"
+              name="zt36"
+            ></b-form-radio-group>
+            <p v-else>{{ form.S0020 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Skill in conducting trend analysis:"
+            label-for="nested-state"
+            v-slot="{ ir35 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt37"
+              v-model="form.S0169"
+              :options="options3"
+              :aria-describedby="ir35"
+              name="zt37"
+            ></b-form-radio-group>
+            <p v-else>{{ form.S0169 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Skill to design incident response for cloud service models:"
+            label-for="nested-state"
+            v-slot="{ ir36 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt38"
+              v-model="form.S0365"
+              :options="options3"
+              :aria-describedby="ir36"
+              name="zt38"
+            ></b-form-radio-group>
+            <p v-else>{{ form.S0365 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Ability to accurately and completely source all data used in intelligence, assessment and/or planning products:"
+            label-for="nested-state"
+            v-slot="{ ir37 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt39"
+              v-model="form.A0066"
+              :options="options3"
+              :aria-describedby="ir37"
+              name="zt39"
+            ></b-form-radio-group>
+            <p v-else>{{ form.A0066 }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Ability to design incident response for cloud service models:"
+            label-for="nested-state"
+            v-slot="{ ir38 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="zt40"
+              v-model="form.A0121"
+              :options="options3"
+              :aria-describedby="ir38"
+              name="zt40"
+            ></b-form-radio-group>
+            <p v-else>{{ form.A0121 }}</p>
+          </b-form-group>
+          </b-card-body>
+        </b-collapse>
+        <!-- <b-form-group
+          label-cols-lg="3"
+          label="Skills Level"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        > -->
+        
+        <!-- </b-form-group> -->
+      </b-card>
+      <br>
+      <b-card bg-variant="light">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-11 variant="info">Section 5 of 7 - Endpoint Tools</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-11" visible accordion="my-accordion11" role="tabpanel">
+          <b-card-body>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
+          <b-form-group
+            label="Cisco:"
+            label-for="nested-street"
+            label-cols-sm="3"
+            v-slot="{ ed1 }"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et1"
+              v-model="form.Ciscoone"
+              :options="options1"
+              :aria-describedby="ed1"
+              name="et1"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Ciscoone }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Crowdstrike:"
+            label-for="nested-city"
+            v-slot="{ ed2 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et2"
+              v-model="form.CrowdStrike"
+              :options="options1"
+              :aria-describedby="ed2"
+              name="et2"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CrowdStrike }}</p>
+          </b-form-group>
+          <b-form-group
+            label="FireEye:"
+            label-for="nested-state"
+            v-slot="{ ed3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et3"
+              v-model="form.FireEye"
+              :options="options1"
+              :aria-describedby="ed3"
+              name="et3"
+            ></b-form-radio-group>
+            <p v-else>{{ form.FireEye }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Juniper:"
+            label-for="nested-state"
+            v-slot="{ ed4 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et4"
+              v-model="form.Juniper"
+              :options="options1"
+              :aria-describedby="ed4"
+              name="et4"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Juniper }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Sophos:"
+            label-for="nested-state"
+            v-slot="{ ed5 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et5"
+              v-model="form.Sophosone"
+              :options="options1"
+              :aria-describedby="ed5"
+              name="et5"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Sophosone }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Symantec:"
+            label-for="nested-state"
+            v-slot="{ ed6 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="et6"
+              v-model="form.Symantec"
+              :options="options1"
+              :aria-describedby="ed6"
+              name="et6"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Symantec }}</p>
+          </b-form-group>
+          </b-card-body>
+        </b-collapse>
+        <!-- <b-form-group
+          label-cols-lg="3"
+          label="Skills Level"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        > -->
+        
+        <!-- </b-form-group> -->
+      </b-card>
+      <br>
+      <b-card bg-variant="light">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-12 variant="info">Section 5 of 7 - Scripting and Programming Tools</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-12" visible accordion="my-accordion12" role="tabpanel">
+          <b-card-body>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
+          <b-form-group
+            label="C:"
+            label-for="nested-street"
+            label-cols-sm="3"
+            v-slot="{ sp1 }"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc1"
+              v-model="form.C"
+              :options="options1"
+              :aria-describedby="sp1"
+              name="stc1"
+            ></b-form-radio-group>
+            <p v-else>{{ form.C }}</p>
+          </b-form-group>
+          <b-form-group
+            label="C++:"
+            label-for="nested-city"
+            v-slot="{ sp2 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc2"
+              v-model="form.Cplusplus"
+              :options="options1"
+              :aria-describedby="sp2"
+              name="stc2"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Cplusplus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Java:"
+            label-for="nested-state"
+            v-slot="{ sp3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc3"
+              v-model="form.Java"
+              :options="options1"
+              :aria-describedby="sp3"
+              name="stc3"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Java }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Javascript:"
+            label-for="nested-state"
+            v-slot="{ sp4 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc4"
+              v-model="form.Javascript"
+              :options="options1"
+              :aria-describedby="sp4"
+              name="stc4"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Javascript }}</p>
+          </b-form-group>
+          <b-form-group
+            label="PHP:"
+            label-for="nested-state"
+            v-slot="{ sp5 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc5"
+              v-model="form.php"
+              :options="options1"
+              :aria-describedby="sp5"
+              name="stc5"
+            ></b-form-radio-group>
+            <p v-else>{{ form.php }}</p>
+          </b-form-group>
+          <b-form-group
+            label="PowerShell:"
+            label-for="nested-state"
+            v-slot="{ sp6 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc6"
+              v-model="form.PowerShell"
+              :options="options1"
+              :aria-describedby="sp6"
+              name="stc6"
+            ></b-form-radio-group>
+            <p v-else>{{ form.PowerShell }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Python:"
+            label-for="nested-state"
+            v-slot="{ sp7 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc7"
+              v-model="form.Python"
+              :options="options1"
+              :aria-describedby="sp7"
+              name="stc7"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Python }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Bash:"
+            label-for="nested-state"
+            v-slot="{ sp8 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="stc8"
+              v-model="form.Bash"
+              :options="options1"
+              :aria-describedby="sp8"
+              name="stc8"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Bash }}</p>
+          </b-form-group>
+          </b-card-body>
+        </b-collapse>
+        <!-- <b-form-group
+          label-cols-lg="3"
+          label="Skills Level"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        > -->
+        
+        <!-- </b-form-group> -->
+      </b-card>
+      <br>
+      <b-card bg-variant="light">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-2 variant="info">Section 7 of 7 - Certifications and Credentials</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
+          <b-card-body>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
+          <b-form-group
+            label="A+:"
+            label-for="nested-street"
+            label-cols-sm="3"
+            v-slot="{ ariaDescribedby1 }"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="CC1"
+              v-model="form.Aplus"
+              :options="options"
+              :aria-describedby="ariaDescribedby1"
+              name="CC1"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Aplus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CCN"
+            label-for="nested-city"
+            v-slot="{ ariaDescribedby2 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc2"
+              v-model="form.CCN"
+              :options="options"
+              :aria-describedby="ariaDescribedby2"
+              name="cc2"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CCN }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CCSA"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc3"
+              v-model="form.CCSA"
               :options="options"
               :aria-describedby="ariaDescribedby3"
-              name="radio-options3"
+              name="cc3"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CCSA }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CEH"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc4"
+              v-model="form.CEH"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc4"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CEH }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CISA"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc5"
+              v-model="form.CISA"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc5"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CISA }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CISM"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc6"
+              v-model="form.CISM"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc6"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CISM }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CISSP"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc7"
+              v-model="form.CISSP"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc7"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CISSP }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CPP"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc8"
+              v-model="form.CPP"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc8"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CPP }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CSSLP"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc9"
+              v-model="form.CSSLP"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc9"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CSSLP }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CSX"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc10"
+              v-model="form.CSX"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc10"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CSX }}</p>
+          </b-form-group>
+          <b-form-group
+            label="CTTplus"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc11"
+              v-model="form.CTTplus"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc11"
+            ></b-form-radio-group>
+            <p v-else>{{ form.CTTplus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="GCPM"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc12"
+              v-model="form.GCPM"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc12"
+            ></b-form-radio-group>
+            <p v-else>{{ form.GCPM }}</p>
+          </b-form-group>
+          <b-form-group
+            label="GIAC"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc13"
+              v-model="form.GIAC"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc13"
+            ></b-form-radio-group>
+            <p v-else>{{ form.GIAC }}</p>
+          </b-form-group>
+          <b-form-group
+            label="GPEN"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc14"
+              v-model="form.GPEN"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc14"
+            ></b-form-radio-group>
+            <p v-else>{{ form.GPEN }}</p>
+          </b-form-group>
+          <b-form-group
+            label="GSLC"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc15"
+              v-model="form.GSLC"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc15"
+            ></b-form-radio-group>
+            <p v-else>{{ form.GSLC }}</p>
+          </b-form-group>
+          <b-form-group
+            label="GXPN"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc16"
+              v-model="form.GXPN"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc16"
+            ></b-form-radio-group>
+            <p v-else>{{ form.GXPN }}</p>
+          </b-form-group>
+          <b-form-group
+            label="MCP"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc17"
+              v-model="form.MCP"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc17"
+            ></b-form-radio-group>
+            <p v-else>{{ form.MCP }}</p>
+          </b-form-group>
+          <b-form-group
+            label="MTA"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc18"
+              v-model="form.MTA"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc18"
+            ></b-form-radio-group>
+            <p v-else>{{ form.MTA }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Networkplus"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc19"
+              v-model="form.Networkplus"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc19"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Networkplus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="SANS"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc20"
+              v-model="form.SANS"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc20"
+            ></b-form-radio-group>
+            <p v-else>{{ form.SANS }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Securityplus"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc21"
+              v-model="form.Securityplus"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc21"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Securityplus }}</p>
+          </b-form-group>
+          <b-form-group
+            label="Six_Sigma"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby3 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="cc22"
+              v-model="form.Six_Sigma"
+              :options="options"
+              :aria-describedby="ariaDescribedby3"
+              name="cc22"
+            ></b-form-radio-group>
+            <p v-else>{{ form.Six_Sigma }}</p>
+          </b-form-group>
+          </b-card-body>
+        </b-collapse>
+        <!-- <b-form-group
+          label-cols-lg="3"
+          label="Skills Level"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        > -->
+        
+        <!-- </b-form-group> -->
+      </b-card>
+      <br>
+      
+      <b-card bg-variant="light">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-3 variant="info">Cyber Analyst I - Skill Ratings</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-3" visible accordion="my-accordion3" role="tabpanel">
+          <b-card-body>
+            <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
+        <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
+          <b-form-group
+            label="Tactics, Techniques and Procedures:"
+            label-for="nested-street"
+            label-cols-sm="3"
+            v-slot="{ ariaDescribedby12 }"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="radio-group-14"
+              v-model="form.tac"
+              :options="options1"
+              :aria-describedby="ariaDescribedby12"
+              name="radio-options-28"
+            ></b-form-radio-group>
+            <p v-else>{{ form.tac }}</p>
+          </b-form-group>
+
+          <b-form-group
+            label="Ability to perform coordinated actions to LoE"
+            label-for="nested-city"
+            v-slot="{ ariaDescribedby23 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="radio-group-24"
+              v-model="form.loe"
+              :options="options1"
+              :aria-describedby="ariaDescribedby23"
+              name="radio-options-22"
+            ></b-form-radio-group>
+            <p v-else>{{ form.loe }}</p>
+          </b-form-group>
+
+          <b-form-group
+            label="Knowledge of California State's IT Roles and Requirements:"
+            label-for="nested-state"
+            v-slot="{ ariaDescribedby35 }"
+            label-cols-sm="3"
+            label-align-sm="right"
+          >
+            <b-form-radio-group
+              v-if="editable2"
+              id="radio-group-34"
+              v-model="form.it"
+              :options="options1"
+              :aria-describedby="ariaDescribedby35"
+              name="radio-options-23"
             ></b-form-radio-group>
             <p v-else>{{ form.it }}</p>
           </b-form-group>
@@ -206,13 +2199,135 @@ export default {
           { text: 'Inactive', value: 'Inactive' }
         ],
         options: [
+          { text: 'NA', value: 'NA' },
+          { text: 'Completed', value: 'Completed' },
+          { text: 'InProgress', value: 'InProgress'},
+          { text: 'Planned', value: 'Planned' }
+        ],
+        options1: [
           { text: 'None', value: 'None' },
           { text: 'Novice', value: 'Novice' },
           { text: 'Proficient', value: 'Proficient'},
           { text: 'Expert', value: 'Expert' }
         ],
+        options3: [
+          { text: '1', value: '1' },
+          { text: '2', value: '2' },
+          { text: '3', value: '3'},
+          { text: '4', value: '4' }
+        ],
         form: {
           age: '',
+          K0004: '',
+          K0003: '',
+          K0006: '',
+          K0015: '',
+          K0018: '',
+          K0019: '',
+          K0026: '',
+          K0040: '',
+          K0041: '',
+          K0042: '',
+          K0044: '',
+          K0046: '',
+          K0049: '',
+          K0059: '',
+          K0070: '',
+          K0093: '',
+          K0107: '',
+          K0116: '',
+          K0142: '',
+          K0157: '',
+          K0160: '',
+          K0161: '',
+          K0162: '',
+          K0177: '',
+          K0180: '',
+          K0190: '',
+          K0191: '',
+          K0192: '',
+          K0203: '',
+          K0259: '',
+          K0287: '',
+          K0322: '',
+          K0624: '',
+          S0020: '',
+          S0169: '',
+          S0365: '',
+          A0066: '',
+          A0121: '',
+          Bash: '',
+          C: '',
+          Cplusplus: '',
+          Java: '',
+          Javascript: '',
+          php: '',
+          PowerShell: '',
+          Python: '',
+          Ciscoone: '',
+          CrowdStrike: '',
+          FireEye: '',
+          Juniper: '',
+          Symantec: '',
+          Sophosone: '',
+          Aircrack_ng: '',
+          Autopsy: '',
+          Darktrace: '',
+          Elasticsearch: '',
+          EnCase: '',
+          Eyewitness: '',
+          Forensic_Tool_Kit: '',
+          Kali_Linux: '',
+          Kibana: '',
+          Logstash: '',
+          Logzilla: '',
+          Metasploit: '',
+          Nessus: '',
+          NetSim: '',
+          Nmap: '',
+          Octopussy: '',
+          Packet_Tracer: '',
+          Palo_Alto: '',
+          Security_Onion: '',
+          Shodan: '',
+          SIFT: '',
+          Snort: '',
+          Sophos: '',
+          Splunk: '',
+          Sumologic: '',
+          Suricata: '',
+          Wireshark: '',
+          Malware_Detection_PC_Windows: '',
+          Malware_Detection_PC_Mac: '',
+          Malware_Detection_PC_Linux: '',
+          Malware_Detection_Mobile_Android: '',
+          Malware_Detection_Mobile_IOS: '',
+          Setting_up_VPNs: '',
+          Setting_up_secure_wired_LAN: '',
+          Setting_up_secure_wireless_LAN: '',
+          Configure_and_harden_networks: '',
+          Aplus: '',
+          CCN: '',
+          CCSA: '',
+          CEH: '',
+          CISA:'',
+          CISM:'',
+          CISSP:'',
+          CPP:'',
+          CSSLP:'',
+          CSX:'',
+          CTTplus:'',
+          GCPM:'',
+          GIAC:'',
+          GPEN:'',
+          GSLC:'',
+          GXPN:'',
+          MCP:'',
+          MTA:'',
+          Networkplus: '',
+          SANS: '',
+          Securityplus: '',
+          Six_Sigma: '',
           first_name: '',
           last_name: '',
           name: '',
@@ -263,7 +2378,118 @@ export default {
       postUserData() {
         if (this.form.rank == 'Service Member') {
           const data = {
+            K0004__c:this.form.K0004,
+            K0003__c:this.form.K0003,
+            K0006__c:this.form.K0006,
+            K0015__c:this.form.K0015,
+            K0018__c:this.form.K0018,
+            K0019__c:this.form.K0019,
+            K0026__c:this.form.K0026,
+            K0040__c:this.form.K0040,
+            K0041__c:this.form.K0041,
+            K0042__c:this.form.K0042,
+            K0044__c:this.form.K0044,
+            K0046__c:this.form.K0046,
+            K0049__c:this.form.K0049,
+            K0059__c:this.form.K0059,
+            K0070__c:this.form.K0070,
+            K0093__c:this.form.K0093,
+            K0107__c:this.form.K0107,
+            K0116__c:this.form.K0116,
+            K0142__c:this.form.K0142,
+            K0157__c:this.form.K0157,
+            K0160__c:this.form.K0160,
+            K0161__c:this.form.K0161,
+            K0162__c:this.form.K0162,
+            K0177__c:this.form.K0177,
+            K0180__c:this.form.K0180,
+            K0190__c:this.form.K0190,
+            K0191__c:this.form.K0191,
+            K0192__c:this.form.K0192,
+            K0203__c:this.form.K0203,
+            K0259__c:this.form.K0259,
+            K0287__c:this.form.K0287,
+            K0322__c:this.form.K0322,
+            K0624__c:this.form.K0624,
+            S0020__c:this.form.S0020,
+            S0169__c:this.form.S0169,
+            S0365__c:this.form.S0365,
+            A0066__c:this.form.A0066,
+            A0121__c:this.form.A0121,
             age__c: this.form.age,
+            Bash: this.form.Bash,
+            C__c: this.form.C,
+            Cplusplus__c: this.form.Cplusplus,
+            Java__c: this.form.Java,
+            Javascript__c: this.form.Javascript,
+            php__c: this.form.php,
+            PowerShell__c: this.form.PowerShell,
+            Python__c: this.form.Python,
+            Ciscoone__c: this.form.Ciscoone,
+            CrowdStrike__c: this.form.CrowdStrike,
+            FireEye__c: this.form.FireEye,
+            Juniper__c: this.form.Juniper,
+            Symantec__c: this.form.Symantec,
+            Sophosone__c: this.form.Sophosone,
+            Aircrack_ng__c: this.form.Aircrack_ng,
+            Autopsy__c: this.form.Autopsy,
+            Cisco__c: this.form.Cisco,
+            Darktrace__c: this.form.Darktrace,
+            Elasticsearch__c: this.form.Elasticsearch,
+            EnCase__c: this.form.EnCase,
+            Eyewitness__c: this.form.Eyewitness,
+            Forensic_Tool_Kit__c: this.form.Forensic_Tool_Kit,
+            Kali_Linux__c: this.form.Kali_Linux,
+            Kibana__c: this.form.Kibana,
+            Logstash__c: this.form.Logstash,
+            Logzilla__c: this.form.Logzilla,
+            Metasploit__c: this.form.Metasploit,
+            Nessus__c: this.form.Nessus,
+            NetSim__c: this.form.NetSim,
+            Nmap__c: this.form.Nmap,
+            Octopussy__c: this.form.Octopussy,
+            Packet_Tracer__c: this.form.Packet_Tracer,
+            Palo_Alto__c: this.form.Palo_Alto,
+            Security_Onion__c: this.form.Security_Onion,
+            Shodan__c: this.form.Shodan,
+            SIFT__c: this.form.SIFT,
+            Snort__c: this.form.Snort,
+            Sophos__c: this.form.Sophos,
+            Splunk__c: this.form.Splunk,
+            Sumologic__c: this.form.Sumologic,
+            Suricata__c: this.form.Suricata,
+            Wireshark__c: this.form.Wireshark,
+            Malware_Detection_PC_Windows__c:this.form.Malware_Detection_PC_Windows,
+            Malware_Detection_PC_Mac__c:this.form.Malware_Detection_PC_Mac,
+            Malware_Detection_PC_Linux__c:this.form.Malware_Detection_PC_Linux,
+            Malware_Detection_Mobile_Android__c:this.form.Malware_Detection_Mobile_Android,
+            Malware_Detection_Mobile_IOS__c:this.form.Malware_Detection_Mobile_IOS,
+            Setting_up_VPNs__c:this.form.Setting_up_VPNs,
+            Setting_up_secure_wired_LAN__c:this.form.Setting_up_secure_wired_LAN,
+            Setting_up_secure_wireless_LAN__c:this.form.Setting_up_secure_wireless_LAN,
+            Configure_and_harden_networks__c: this.form.Configure_and_harden_networks,
+            Aplus__c: this.form.Aplus,
+            CCN__c: this.form.CCN,
+            CCSA__c: this.form.CCSA,
+            CEH__c: this.form.CEH,
+            CISA__c: this.form.CISA,
+            CISM__c: this.form.CISM,
+            CISSP__c: this.form.CISSP,
+            CPP__c: this.form.CPP,
+            CSSLP__c: this.form.CSSLP,
+            CSX__c: this.form.CSX,
+            CTTplus__c: this.form.CTTplus,
+            GCPM__c: this.form.GCPM,
+            GIAC__c: this.form.GIAC,
+            GPEN__c: this.form.GPEN,
+            GSLC__c: this.form.GSLC,
+            GXPN__c: this.form.GXPN,
+            MCP__c: this.form.MCP,
+            MTA__c: this.form.MTA,
+            Networkplus__c: this.form.Networkplus,
+            SANS__c: this.form.SANS,
+            Securityplus__c: this.form.Securityplus,
+            Six_Sigma__c: this.form.Six_Sigma,
             firstName__c: this.form.first_name,
             lastName__c: this.form.last_name,
             name: this.form.name,
@@ -280,7 +2506,118 @@ export default {
           })
         } else {
           const data = {
+            K0004__c:this.form.K0004,
+            K0003__c:this.form.K0003,
+            K0006__c:this.form.K0006,
+            K0015__c:this.form.K0015,
+            K0018__c:this.form.K0018,
+            K0019__c:this.form.K0019,
+            K0026__c:this.form.K0026,
+            K0040__c:this.form.K0040,
+            K0041__c:this.form.K0041,
+            K0042__c:this.form.K0042,
+            K0044__c:this.form.K0044,
+            K0046__c:this.form.K0046,
+            K0049__c:this.form.K0049,
+            K0059__c:this.form.K0059,
+            K0070__c:this.form.K0070,
+            K0093__c:this.form.K0093,
+            K0107__c:this.form.K0107,
+            K0116__c:this.form.K0116,
+            K0142__c:this.form.K0142,
+            K0157__c:this.form.K0157,
+            K0160__c:this.form.K0160,
+            K0161__c:this.form.K0161,
+            K0162__c:this.form.K0162,
+            K0177__c:this.form.K0177,
+            K0180__c:this.form.K0180,
+            K0190__c:this.form.K0190,
+            K0191__c:this.form.K0191,
+            K0192__c:this.form.K0192,
+            K0203__c:this.form.K0203,
+            K0259__c:this.form.K0259,
+            K0287__c:this.form.K0287,
+            K0322__c:this.form.K0322,
+            K0624__c:this.form.K0624,
+            S0020__c:this.form.S0020,
+            S0169__c:this.form.S0169,
+            S0365__c:this.form.S0365,
+            A0066__c:this.form.A0066,
+            A0121__c:this.form.A0121,
+            Bash: this.form.Bash,
+            C__c: this.form.C,
+            Cplusplus__c: this.form.Cplusplus,
+            Java__c: this.form.Java,
+            Javascript__c: this.form.Javascript,
+            php__c: this.form.php,
+            PowerShell__c: this.form.PowerShell,
+            Python__c: this.form.Python,
+            Ciscoone__c: this.form.Ciscoone,
+            CrowdStrike__c: this.form.CrowdStrike,
+            FireEye__c: this.form.FireEye,
+            Juniper__c: this.form.Juniper,
+            Symantec__c: this.form.Symantec,
+            Sophosone__c: this.form.Sophosone,
+            Aircrack_ng__c: this.form.Aircrack_ng,
+            Autopsy__c: this.form.Autopsy,
+            Cisco__c: this.form.Cisco,
+            Darktrace__c: this.form.Darktrace,
+            Elasticsearch__c: this.form.Elasticsearch,
+            EnCase__c: this.form.EnCase,
+            Eyewitness__c: this.form.Eyewitness,
+            Forensic_Tool_Kit__c: this.form.Forensic_Tool_Kit,
+            Kali_Linux__c: this.form.Kali_Linux,
+            Kibana__c: this.form.Kibana,
+            Logstash__c: this.form.Logstash,
+            Logzilla__c: this.form.Logzilla,
+            Metasploit__c: this.form.Metasploit,
+            Nessus__c: this.form.Nessus,
+            NetSim__c: this.form.NetSim,
+            Nmap__c: this.form.Nmap,
+            Octopussy__c: this.form.Octopussy,
+            Packet_Tracer__c: this.form.Packet_Tracer,
+            Palo_Alto__c: this.form.Palo_Alto,
+            Security_Onion__c: this.form.Security_Onion,
+            Shodan__c: this.form.Shodan,
+            SIFT__c: this.form.SIFT,
+            Snort__c: this.form.Snort,
+            Sophos__c: this.form.Sophos,
+            Splunk__c: this.form.Splunk,
+            Sumologic__c: this.form.Sumologic,
+            Suricata__c: this.form.Suricata,
+            Wireshark__c: this.form.Wireshark,
+            Malware_Detection_PC_Windows__c:this.form.Malware_Detection_PC_Windows,
+            Malware_Detection_PC_Mac__c:this.form.Malware_Detection_PC_Mac,
+            Malware_Detection_PC_Linux__c:this.form.Malware_Detection_PC_Linux,
+            Malware_Detection_Mobile_Android__c:this.form.Malware_Detection_Mobile_Android,
+            Malware_Detection_Mobile_IOS__c:this.form.Malware_Detection_Mobile_IOS,
+            Setting_up_VPNs__c:this.form.Setting_up_VPNs,
+            Setting_up_secure_wired_LAN__c:this.form.Setting_up_secure_wired_LAN,
+            Setting_up_secure_wireless_LAN__c:this.form.Setting_up_secure_wireless_LAN,
+            Configure_and_harden_networks__c: this.form.Configure_and_harden_networks,
+            CCN__c: this.form.CCN,
+            CCSA__c: this.form.CCSA,
+            CEH__c: this.form.CEH,
+            CISA__c: this.form.CISA,
+            CISM__c: this.form.CISM,
+            CISSP__c: this.form.CISSP,
+            CPP__c: this.form.CPP,
+            CSSLP__c: this.form.CSSLP,
+            CSX__c: this.form.CSX,
+            CTTplus__c: this.form.CTTplus,
+            GCPM__c: this.form.GCPM,
+            GIAC__c: this.form.GIAC,
+            GPEN__c: this.form.GPEN,
+            GSLC__c: this.form.GSLC,
+            GXPN__c: this.form.GXPN,
+            MCP__c: this.form.MCP,
+            MTA__c: this.form.MTA,
+            Networkplus__c: this.form.Networkplus,
+            SANS__c: this.form.SANS,
+            Securityplus__c: this.form.Securityplus,
+            Six_Sigma__c: this.form.Six_Sigma,
             age__c: this.form.age,
+            Aplus__c: this.form.Aplus,
             firstName__c: this.form.first_name,
             lastName__c: this.form.last_name,
             name: this.form.name,
