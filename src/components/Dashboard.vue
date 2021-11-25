@@ -56,16 +56,9 @@
           </b-collapse>
           </b-card>
           <b-card style="margin: 1%">
-        <b-form inline>
-            <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
-            <b-form-input
-            style="border: 0.5px solid white"
-            id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0"
-            placeholder="Enter name"
-            v-model="searchName"
-            ></b-form-input>
-            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button>
+        <b-form inline style="margin: 0 0 auto 20%">
+            
+            <!-- <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button> -->
             <!-- <b-button v-if="!con1" class="bbut" variant="success" @click="con1 = !con1">AND</b-button>
             <b-button v-if="con1" class="bbut" variant="info" @click="con1 = !con1">OR</b-button> -->
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Rank = </label>
@@ -101,7 +94,7 @@
             ></b-form-select>
             <!-- <v-select v-model="skillVal" :options="['None', 'Novice', 'Proficient', 'Expert']"></v-select> -->
             <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getDataFiltered">Search</b-button>
-            <b-button class="bbut" variant="danger" @click="getUserData">Reset Table To Default</b-button>
+            <b-button class="bbut" variant="danger" @click="getUserData">Clear</b-button>
         </b-form>
       </b-card>
       <b-card class="mt-3" style="color: white; font-weight: 80" header="Form Data Result">
@@ -121,8 +114,31 @@
             <!-- <img src="../assets/csv.png"> -->
             <b-button style="color: white; background: green">Export as CSV</b-button>
         </download-csv>
+        <b-col lg="6" class="my-1">
+            <b-form-group
+              label="Search"
+              label-for="filter-input"
+              label-cols-sm="1"
+              label-align-sm="right"
+              label-size="sm"
+              class="mb-0"
+            >
+              <b-input-group size="sm">
+                <b-form-input
+                  id="filter-input"
+                  v-model="filter"
+                  type="search"
+                  placeholder="Type to Search"
+                ></b-form-input>
+
+                <b-input-group-append>
+                  <b-button :disabled="!filter" @click="Search = ''">Clear</b-button>
+                </b-input-group-append>
+              </b-input-group>
+            </b-form-group>
+          </b-col>
           <span class="tableScroll">
-            <b-table stickyColumn style="color: white" :items="users" :fields="fields"></b-table>
+            <b-table :filter="filter" :filter-included-fields="filterOn" stickyColumn style="color: white" :items="users" :fields="fields"></b-table>
           </span>
         </span>
 
@@ -146,6 +162,7 @@ export default {
       return {
         selected: ['FirstName__c', 'LastName__c','Rank__c'],
         alertT: false,
+        filter: '',
         fir: [
           {
             "country": '',
@@ -247,6 +264,14 @@ export default {
             this.fir[2].litres = response.data.totalSize
             this.trainingTeam = response.data.totalSize
         })
+    },
+    computed: {
+      filteredUsers () {
+        this.$Progress.start()
+        return this.users.filter((us) => {
+          return (us.username.toLowerCase().match(this.searchP.toLowerCase()) || us.first_name.toLowerCase().match(this.searchP.toLowerCase()) || us.last_name.toLowerCase().match(this.searchP.toLowerCase()) || us.email.toLowerCase().match(this.searchP.toLowerCase()))
+        })
+      }
     },
     methods: {
       getColumns () {
