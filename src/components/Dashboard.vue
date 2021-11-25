@@ -28,6 +28,34 @@
         </b-card-group>
       </div>
       <b-card style="margin: 1%">
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-2 variant="info">Field Filters</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
+        <b-card-body>
+        <b-alert v-if="alertT" show variant="danger">Select at least 1 Column</b-alert>
+          <b-form-group v-slot="{ ariaDescribedbyCh }">
+          <span class="scroll align-content-start">
+            <b-form-checkbox-group
+            switches
+            stacked
+            style="column-count: 3"
+            id="checkbox-group-1"
+            v-model="selected"
+            :options="columnNames"
+            :aria-describedby="ariaDescribedbyCh"
+            name="flavour-1"
+            class="mx-auto"
+            >
+            </b-form-checkbox-group>
+          </span>
+          </b-form-group>
+          
+          <b-button style="background-color: #17C1FB; color: white; cursor: pointer" @click="onSaveDisplay()">Save</b-button>
+          </b-card-body>
+          </b-collapse>
+          </b-card>
+          <b-card style="margin: 1%">
         <b-form inline>
             <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
             <b-form-input
@@ -73,10 +101,9 @@
             ></b-form-select>
             <!-- <v-select v-model="skillVal" :options="['None', 'Novice', 'Proficient', 'Expert']"></v-select> -->
             <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getDataFiltered">Search</b-button>
-            <b-button class="bbut" variant="danger" @click="getUserData">Reset</b-button>
+            <b-button class="bbut" variant="danger" @click="getUserData">Reset Table To Default</b-button>
         </b-form>
       </b-card>
-      
       <b-card class="mt-3" style="color: white; font-weight: 80" header="Form Data Result">
         <!-- <pre v-if="usersPresent" class="m-0">Name: {{ user.Name }} Age:{{ user.Age__c }} Rank: {{ user.Rank__c }} Duty: {{ user.Duty__c }} TAC: {{ user.TAC__c }} LOE:{{ user.LoE__c }} IT:{{ user.IT__c }}</pre>
         <pre v-else class="m-0">Service Member Does not Exist</pre> -->
@@ -86,13 +113,19 @@
         <div style="width: 35%; height: 50%;display: inline-block; background: #19365D">
           <donut :fir = "fir" :key="check"></donut>
         </div> -->
+        
+        <span>
         <download-csv
-            style="float:right; margin: 1%; cursor: pointer"
+            style="margin: 1%; float: right; margin: 1%; cursor: pointer"
             :data = "users">
             <!-- <img src="../assets/csv.png"> -->
             <b-button style="color: white; background: green">Export as CSV</b-button>
         </download-csv>
-        <b-table style="color: white" :items="users" :fields="fields"></b-table>
+          <span class="tableScroll">
+            <b-table stickyColumn style="color: white" :items="users" :fields="fields"></b-table>
+          </span>
+        </span>
+
       </b-card>
   </div>
 </template>
@@ -111,6 +144,8 @@ export default {
   },
   data() {
       return {
+        selected: ['FirstName__c', 'LastName__c','Rank__c'],
+        alertT: false,
         fir: [
           {
             "country": '',
@@ -155,7 +190,12 @@ export default {
         skillChosen: '',
         skillVal: '',
         rankVal: '',
-        fields: ['FirstName__c', 'LastName__c','Age__c', 'Rank__c','Duty__c','LoE__c' , 'IT__c', 'TAC__c'],
+        // obj: {
+        //   text: '',
+        //   value: ''
+        // },
+        // fields: ['FirstName__c', 'LastName__c','Age__c', 'Rank__c','Duty__c','LoE__c' , 'IT__c', 'TAC__c'],
+        fields: [],
         ranks: [
           { text: 'Name', value: 'Name' },
           { text: 'Command Staff', value: 'Command Staff' },
@@ -167,6 +207,7 @@ export default {
           { text: 'Proficient', value: 'Proficient'},
           { text: 'Expert', value: 'Expert' }
         ],
+        columnNames: [],
         form: {
           age: '',
           first_name: '',
@@ -189,6 +230,8 @@ export default {
       this.countsGet()
     },
     mounted() {
+      this.getColumns()
+      this.onSaveDisplay()
       mainApi.getCountsService().then((response) => {
             this.fir[0].country = 'Service Member'
             this.fir[0].litres = response.data.totalSize
@@ -206,6 +249,29 @@ export default {
         })
     },
     methods: {
+      getColumns () {
+        mainApi.getColumnNames().then((response) => {
+          for(var i = 12; i < response.data.fields.length; i++) {
+            if (response.data.fields[i].name != 'Password__c') {
+              var obj = {}
+              obj.text = response.data.fields[i].name.replaceAll('_', ' ').slice(0, -2);
+              obj.value = response.data.fields[i].name;
+              this.columnNames.push(obj)
+            }
+          }
+        })
+      },
+      onSaveDisplay () {
+        if(this.selected.length == 0) {
+          this.alertT = true
+        } else {
+          this.fields = this.selected
+          mainApi.getServiceMembers(this.selected).then((response) => {
+            this.users = response.data.records
+          })
+        }
+        
+      },
       forceRerender () {
         this.check += 1
       },
@@ -296,7 +362,9 @@ export default {
         })
       },
       getUserData () {
-        mainApi.getServiceMembers().then((response) => {
+        // this.fields = ['FirstName__c', 'LastName__c','Rank__c']
+        // this.selected = this.fields
+        mainApi.getServiceMembers(this.selected).then((response) => {
           this.usersPresent = true
           this.users = response.data.records
           this.searchName = ''
@@ -359,6 +427,12 @@ header.card-header{
 .custom-control-label::before, .custom-file-label, .custom-select {
   background-color: #2c3e50;
 }
+.tableScroll {
+  overflow: auto;
+  width: 100%;
+  float: left;
+  white-space: nowrap;
+}
 .card {
   border: none;
 }
@@ -371,7 +445,14 @@ div.card-body{
   background-color: #19365D;
   border: 1px solid #17C1FB;
 }
-
+.scroll {
+  height: 440px;
+  width: 100%;
+  overflow: auto;
+  float: left;
+  margin-left: 2%;
+  text-align: left;
+}
 .hello {
   margin: 3% 10% 10% 10%;
   background-color: #072952;

@@ -1482,7 +1482,7 @@
             ></b-form-radio-group>
             <p v-else>{{ form.Configure_and_harden_networks }}</p>
           </b-form-group>
-          <b-form-group
+          <!-- <b-form-group
             label="Aircrack ng:"
             label-for="nested-city"
             v-slot="{ ariaDescribedby2 }"
@@ -1957,7 +1957,7 @@
               name="ct39"
             ></b-form-radio-group>
             <p v-else>{{ form.Wireshark }}</p>
-          </b-form-group>
+          </b-form-group> -->
           </b-card-body>
         </b-collapse>
         <!-- <b-form-group

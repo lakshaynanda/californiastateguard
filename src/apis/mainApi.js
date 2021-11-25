@@ -1,8 +1,21 @@
 import http from '../utils/http-common'
 
 export default class UserForm {
-  static getServiceMembers () {
-    return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
+  static getServiceMembers (columns) {
+    var cols = ""
+    for(var i = 0; i < columns.length; i++) {
+      cols += columns[i] + ","
+    }
+    cols = cols.slice(0, -1)
+    // return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
+    return http.get('data/v52.0/query?q=SELECT ' + cols +  ' From ServiceMember__c')
+  }
+  static getDefaultData () {
+    return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , RANK__c From ServiceMember__c')
+  }
+
+  static getColumnNames () {
+    return http.get('data/v52.0/sobjects/ServiceMember__c/describe')
   }
 
   static getActive () {
