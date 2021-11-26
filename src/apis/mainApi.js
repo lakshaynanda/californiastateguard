@@ -1,39 +1,39 @@
 import http from '../utils/http-common'
 
 export default class UserForm {
-  static getServiceMembers (columns) {
+  static getServiceMembers(columns) {
     var cols = ""
-    for(var i = 0; i < columns.length; i++) {
+    for (var i = 0; i < columns.length; i++) {
       cols += columns[i] + ","
     }
     cols = cols.slice(0, -1)
-    // return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
-    return http.get('data/v52.0/query?q=SELECT ' + cols +  ' From ServiceMember__c')
+    // return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
+    return http.get('data/v52.0/query?q=SELECT ' + cols + ' From ServiceMember__c')
   }
-  static getDefaultData () {
-    return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , RANK__c From ServiceMember__c')
+  static getDefaultData() {
+    return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c From ServiceMember__c')
   }
 
-  static getColumnNames () {
+  static getColumnNames() {
     return http.get('data/v52.0/sobjects/ServiceMember__c/describe')
   }
 
-  static getActive () {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE DUTY__C = 'Active'")
+  static getActive() {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Active'")
   }
 
-   static getInactive () {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE DUTY__C = 'Inactive'")
-   }
-  static getFilteredData (skill, skillVal, rankVal, con2) {
+  static getInactive() {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Inactive'")
+  }
+  static getFilteredData(skill, skillVal, rankVal, con2) {
     var skillEquation = ""
     var rankEquation = ""
     // var nameEquation = ''
-    if(skillVal != "") {
-      skillEquation = skill +" ='"+ skillVal +"'" 
+    if (skillVal != "") {
+      skillEquation = skill + " ='" + skillVal + "'"
     }
-    if(rankVal != "" || rankVal != null) {
-      rankEquation = "RANK__c ='"+ rankVal +"'"
+    if (rankVal != "" || rankVal != null) {
+      rankEquation = "GradeRank__c ='" + rankVal + "'"
     } else {
       rankEquation = ""
     }
@@ -42,7 +42,7 @@ export default class UserForm {
       rankEquation += " " + con2 + " "
     }
     if ((rankVal.length == 0) && (skillVal.length != 0)) {
-      skillEquation = skill +" ='"+ skillVal +"'"
+      skillEquation = skill + " ='" + skillVal + "'"
       rankEquation = ""
     }
     // if (firstname != '' || firstname != null) {
@@ -60,7 +60,7 @@ export default class UserForm {
     //   skillEquation = skill +" ='"+ skillVal +"'" 
     // }
     // if(rankVal != null) {
-    //   rankEquation = "RANK__c ='"+ rankVal +"'"
+    //   rankEquation = "GradeRank__c ='"+ rankVal +"'"
     // } else {
     //   rankEquation = ''
     // }
@@ -81,48 +81,48 @@ export default class UserForm {
     // } else {
     //   nameEquation = ''
     // }
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE "+ rankEquation + skillEquation);
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE " + rankEquation + skillEquation);
   }
 
-  static checkLogin (name, password) {
-    return http.get("data/v52.0/query?q=SELECT Id, isAdmin__c From ServiceMember__c WHERE Name ='" + name +"' AND Password__c='"+ password +"'");
+  static checkLogin(name, password) {
+    return http.get("data/v52.0/query?q=SELECT Id, isAdmin__c From ServiceMember__c WHERE Name ='" + name + "' AND Password__c='" + password + "'");
   }
 
-  static getServiceMemberInd(uname,upass) {
-    return http.get("data/v52.0/query?q=SELECT Id, FirstName__c, LastName__c, Name, AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c From ServiceMember__c WHERE Name ='" + uname +"' AND Password__c='"+ upass +"'")
+  static getServiceMemberInd(uname, upass) {
+    return http.get("data/v52.0/query?q=SELECT Id, FirstName__c, LastName__c, Name, GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c From ServiceMember__c WHERE Name ='" + uname + "' AND Password__c='" + upass + "'")
   }
 
-  static getCountsService () {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE RANK__C = 'Service Member'")
+  static getCountsService() {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Service Member'")
   }
 
-  static getCountsCommand () {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE RANK__C = 'Command Staff'")
+  static getCountsCommand() {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Command Staff'")
   }
 
-  static getCountsTraining () {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE RANK__C = 'Training Team'")
+  static getCountsTraining() {
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Training Team'")
   }
 
-  static getRankList (rankVal) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE RANK__c ='"+ rankVal +"'")
+  static getRankList(rankVal) {
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE GradeRank__c ='" + rankVal + "'")
   }
 
-  static getSkillsList (skill, val) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE "+ skill +" ='"+ val +"'")
+  static getSkillsList(skill, val) {
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE " + skill + " ='" + val + "'")
   }
 
-  static getServiceMemberByName (nameSearch) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c ,AGE__c, RANK__c, DUTY__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE FirstName__c = '"+ nameSearch +"'")
+  static getServiceMemberByName(nameSearch) {
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE FirstName__c = '" + nameSearch + "'")
   }
 
-  static getAuth (data) {
-      if (data) {
-        return http.post('oauth2/token', data)
-      }
+  static getAuth(data) {
+    if (data) {
+      return http.post('oauth2/token', data)
+    }
   }
 
-  static postServiceMember (data) {
+  static postServiceMember(data) {
     if (data) {
       return http.post('data/v52.0/sobjects/ServiceMember__C/', data)
     }
