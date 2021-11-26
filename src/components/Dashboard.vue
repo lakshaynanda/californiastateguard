@@ -28,16 +28,37 @@
         </b-card-group>
       </div>
       <b-card style="margin: 1%">
-        <b-form inline>
-            <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
-            <b-form-input
-            style="border: 0.5px solid white"
-            id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0"
-            placeholder="Enter name"
-            v-model="searchName"
-            ></b-form-input>
-            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button>
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle.accordion-2 variant="info">Field Filters</b-button>
+        </b-card-header>
+        <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
+        <b-card-body>
+        <b-alert v-if="alertT" show variant="danger">Select at least 1 Column</b-alert>
+          <b-form-group v-slot="{ ariaDescribedbyCh }">
+          <span class="scroll align-content-start">
+            <b-form-checkbox-group
+            switches
+            stacked
+            style="column-count: 3"
+            id="checkbox-group-1"
+            v-model="selected"
+            :options="columnNames"
+            :aria-describedby="ariaDescribedbyCh"
+            name="flavour-1"
+            class="mx-auto"
+            >
+            </b-form-checkbox-group>
+          </span>
+          </b-form-group>
+          
+          <b-button style="background-color: #17C1FB; color: white; cursor: pointer" @click="onSaveDisplay()">Save</b-button>
+          </b-card-body>
+          </b-collapse>
+          </b-card>
+          <b-card style="margin: 1%">
+        <b-form inline style="margin: 0 0 auto 20%">
+            
+            <!-- <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button> -->
             <!-- <b-button v-if="!con1" class="bbut" variant="success" @click="con1 = !con1">AND</b-button>
             <b-button v-if="con1" class="bbut" variant="info" @click="con1 = !con1">OR</b-button> -->
             <label class="mr-sm-2" for="inline-form-custom-select-pref">Rank = </label>
@@ -73,26 +94,54 @@
             ></b-form-select>
             <!-- <v-select v-model="skillVal" :options="['None', 'Novice', 'Proficient', 'Expert']"></v-select> -->
             <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getDataFiltered">Search</b-button>
-            <b-button class="bbut" variant="danger" @click="getUserData">Reset</b-button>
+            <b-button class="bbut" variant="danger" @click="getUserData">Clear</b-button>
         </b-form>
       </b-card>
-      
       <b-card class="mt-3" style="color: white; font-weight: 80" header="Form Data Result">
         <!-- <pre v-if="usersPresent" class="m-0">Name: {{ user.Name }} Age:{{ user.Age__c }} Rank: {{ user.Rank__c }} Duty: {{ user.Duty__c }} TAC: {{ user.TAC__c }} LOE:{{ user.LoE__c }} IT:{{ user.IT__c }}</pre>
         <pre v-else class="m-0">Service Member Does not Exist</pre> -->
-        <div style="width: 35%; height: 50%; display: inline-block; float: left;background: #19365D">
-          <piechart :fir = "fir" :key="reren"></piechart>
+        <!-- <div style="width: 35%; height: 50%; display: inline-block; float: left;background: #19365D">
+          <piechart :fir = "fir" :key="check"></piechart>
         </div>
         <div style="width: 35%; height: 50%;display: inline-block; background: #19365D">
-          <donut :fir = "fir" :key="reren"></donut>
-        </div>
+          <donut :fir = "fir" :key="check"></donut>
+        </div> -->
+        
+        <span>
         <download-csv
-            style="float:right; margin: 1%; cursor: pointer"
+            style="margin: 1%; float: right; margin: 1%; cursor: pointer"
             :data = "users">
             <!-- <img src="../assets/csv.png"> -->
             <b-button style="color: white; background: green">Export as CSV</b-button>
         </download-csv>
-        <b-table style="color: white" :items="users" :fields="fields"></b-table>
+        <b-col lg="6" class="my-1">
+            <b-form-group
+              label="Search"
+              label-for="filter-input"
+              label-cols-sm="1"
+              label-align-sm="right"
+              label-size="sm"
+              class="mb-0"
+            >
+              <b-input-group size="sm">
+                <b-form-input
+                  id="filter-input"
+                  v-model="filter"
+                  type="search"
+                  placeholder="Type to Search"
+                ></b-form-input>
+
+                <b-input-group-append>
+                  <b-button :disabled="!filter" @click="Search = ''">Clear</b-button>
+                </b-input-group-append>
+              </b-input-group>
+            </b-form-group>
+          </b-col>
+          <span class="tableScroll">
+            <b-table :filter="filter" :filter-included-fields="filterOn" stickyColumn style="color: white" :items="users" :fields="fields"></b-table>
+          </span>
+        </span>
+
       </b-card>
   </div>
 </template>
@@ -101,16 +150,19 @@
 import mainApi from '../apis/mainApi'
 import qs from 'qs'
 import axios from 'axios'
-import piechart from '../components/piechart.vue'
-import donut from '../components/donut.vue'
+// import piechart from '../components/piechart.vue'
+// import donut from '../components/donut.vue'
 // import authApi from '../apis/auth'
 export default {
   components: {
-    piechart,
-    donut
+    // piechart,
+    // donut
   },
   data() {
       return {
+        selected: ['FirstName__c', 'LastName__c','Rank__c'],
+        alertT: false,
+        filter: '',
         fir: [
           {
             "country": '',
@@ -123,7 +175,7 @@ export default {
           {
             "country": '',
             "litres": ''
-          },
+          }
         ],
         ser: {
           "country": '',
@@ -137,6 +189,7 @@ export default {
           "country": '',
           "litres": ''
         },
+        check: 0,
         editable: true,
         usersPresent: false,
         users: [],
@@ -154,7 +207,12 @@ export default {
         skillChosen: '',
         skillVal: '',
         rankVal: '',
-        fields: ['FirstName__c', 'LastName__c','Age__c', 'Rank__c','Duty__c','LoE__c' , 'IT__c', 'TAC__c'],
+        // obj: {
+        //   text: '',
+        //   value: ''
+        // },
+        // fields: ['FirstName__c', 'LastName__c','Age__c', 'Rank__c','Duty__c','LoE__c' , 'IT__c', 'TAC__c'],
+        fields: [],
         ranks: [
           { text: 'Name', value: 'Name' },
           { text: 'Command Staff', value: 'Command Staff' },
@@ -166,6 +224,7 @@ export default {
           { text: 'Proficient', value: 'Proficient'},
           { text: 'Expert', value: 'Expert' }
         ],
+        columnNames: [],
         form: {
           age: '',
           first_name: '',
@@ -188,11 +247,58 @@ export default {
       this.countsGet()
     },
     mounted() {
-      this.countsGet()
+      this.getColumns()
+      this.onSaveDisplay()
+      mainApi.getCountsService().then((response) => {
+            this.fir[0].country = 'Service Member'
+            this.fir[0].litres = response.data.totalSize
+            this.serviceMem = response.data.totalSize
+        })
+        mainApi.getCountsCommand().then((response) => {
+            this.fir[1].country = 'Command Staff'
+            this.fir[1].litres = response.data.totalSize
+            this.commandStaff = response.data.totalSize
+        })
+        mainApi.getCountsTraining().then((response) => {
+            this.fir[2].country = 'Training Team'
+            this.fir[2].litres = response.data.totalSize
+            this.trainingTeam = response.data.totalSize
+        })
+    },
+    computed: {
+      filteredUsers () {
+        this.$Progress.start()
+        return this.users.filter((us) => {
+          return (us.username.toLowerCase().match(this.searchP.toLowerCase()) || us.first_name.toLowerCase().match(this.searchP.toLowerCase()) || us.last_name.toLowerCase().match(this.searchP.toLowerCase()) || us.email.toLowerCase().match(this.searchP.toLowerCase()))
+        })
+      }
     },
     methods: {
-      rerender () {
-        this.reren += 1
+      getColumns () {
+        mainApi.getColumnNames().then((response) => {
+          for(var i = 12; i < response.data.fields.length; i++) {
+            if (response.data.fields[i].name != 'Password__c') {
+              var obj = {}
+              obj.text = response.data.fields[i].name.replaceAll('_', ' ').slice(0, -2);
+              obj.value = response.data.fields[i].name;
+              this.columnNames.push(obj)
+            }
+          }
+        })
+      },
+      onSaveDisplay () {
+        if(this.selected.length == 0) {
+          this.alertT = true
+        } else {
+          this.fields = this.selected
+          mainApi.getServiceMembers(this.selected).then((response) => {
+            this.users = response.data.records
+          })
+        }
+        
+      },
+      forceRerender () {
+        this.check += 1
       },
       redirectLogin () {
         this.$router.push('/')
@@ -281,9 +387,15 @@ export default {
         })
       },
       getUserData () {
-        mainApi.getServiceMembers().then((response) => {
+        // this.fields = ['FirstName__c', 'LastName__c','Rank__c']
+        // this.selected = this.fields
+        mainApi.getServiceMembers(this.selected).then((response) => {
           this.usersPresent = true
           this.users = response.data.records
+          this.searchName = ''
+          this.rankVal = ''
+          this.skillChosen = ''
+          this.skillVal = ''
         })
       },
       postUserData() {
@@ -340,6 +452,12 @@ header.card-header{
 .custom-control-label::before, .custom-file-label, .custom-select {
   background-color: #2c3e50;
 }
+.tableScroll {
+  overflow: auto;
+  width: 100%;
+  float: left;
+  white-space: nowrap;
+}
 .card {
   border: none;
 }
@@ -352,7 +470,14 @@ div.card-body{
   background-color: #19365D;
   border: 1px solid #17C1FB;
 }
-
+.scroll {
+  height: 440px;
+  width: 100%;
+  overflow: auto;
+  float: left;
+  margin-left: 2%;
+  text-align: left;
+}
 .hello {
   margin: 3% 10% 10% 10%;
   background-color: #072952;

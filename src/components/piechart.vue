@@ -16,27 +16,27 @@ export default {
   data () {
     return {
       chart: null,
-      fir: [
-          {
-              country: 'Service Member',
-              litres: 3
-          },
-          {
-              country: 'Command Staff',
-              litres: 5
-          },
-          {
-              country: 'Training Team',
-              litres: 2
-          }
-      ]
+      // fir: [
+      //     {
+      //         country: 'Service Member',
+      //         litres: 3
+      //     },
+      //     {
+      //         country: 'Command Staff',
+      //         litres: 5
+      //     },
+      //     {
+      //         country: 'Training Team',
+      //         litres: 2
+      //     }
+      // ]
     }
   },
   props: {
-    // fir: {
-    //   type: Array,
-    //   default: () => []
-    // },
+    fir: {
+      type: Array,
+      default: () => []
+    },
     legend: {
       type: String,
       default: () => 'circle',

@@ -19,12 +19,12 @@ export default {
       labelForChart: 'DUTY',
       fir: [
           {
-              country: 'Active',
-              litres: 8
+              country: '',
+              litres: 0
           },
           {
-              country: 'Inactive',
-              litres: 2
+              country: '',
+              litres: 0
           }
       ]
     }
