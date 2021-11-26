@@ -34,6 +34,13 @@
         <b-collapse id="accordion-2" visible accordion="my-accordion2" role="tabpanel">
         <b-card-body>
         <b-alert v-if="alertT" show variant="danger">Select at least 1 Column</b-alert>
+          <b-form-input
+            id="filter-input"
+            v-model="searchP"
+            type="search"
+            placeholder="Search Column Name"
+          ></b-form-input>
+          <br>
           <b-form-group v-slot="{ ariaDescribedbyCh }">
           <span class="scroll align-content-start">
             <b-form-checkbox-group
@@ -42,7 +49,7 @@
             style="column-count: 3"
             id="checkbox-group-1"
             v-model="selected"
-            :options="columnNames"
+            :options="filteredUsers"
             :aria-describedby="ariaDescribedbyCh"
             name="flavour-1"
             class="mx-auto"
@@ -56,8 +63,16 @@
           </b-collapse>
           </b-card>
           <b-card style="margin: 1%">
-        <b-form inline style="margin: 0 0 auto 20%">
-            
+        <b-form inline style="margin: 1%">
+            <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
+            <b-form-input
+            style="border: 0.5px solid white"
+            id="inline-form-input-name"
+            class="mb-2 mr-sm-2 mb-sm-0"
+            placeholder="Enter name"
+            v-model="searchName"
+            ></b-form-input>
+            <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button>
             <!-- <b-button class="bbut" style="background-color: #17C1FB" variant="primary" @click="getServiceMemberInd">Search By Name</b-button> -->
             <!-- <b-button v-if="!con1" class="bbut" variant="success" @click="con1 = !con1">AND</b-button>
             <b-button v-if="con1" class="bbut" variant="info" @click="con1 = !con1">OR</b-button> -->
@@ -132,7 +147,7 @@
                 ></b-form-input>
 
                 <b-input-group-append>
-                  <b-button :disabled="!filter" @click="Search = ''">Clear</b-button>
+                  <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
                 </b-input-group-append>
               </b-input-group>
             </b-form-group>
@@ -162,6 +177,7 @@ export default {
       return {
         selected: ['FirstName__c', 'LastName__c','Rank__c'],
         alertT: false,
+        searchP: '',
         filter: '',
         fir: [
           {
@@ -267,9 +283,9 @@ export default {
     },
     computed: {
       filteredUsers () {
-        this.$Progress.start()
-        return this.users.filter((us) => {
-          return (us.username.toLowerCase().match(this.searchP.toLowerCase()) || us.first_name.toLowerCase().match(this.searchP.toLowerCase()) || us.last_name.toLowerCase().match(this.searchP.toLowerCase()) || us.email.toLowerCase().match(this.searchP.toLowerCase()))
+        return this.columnNames.filter((us) => {
+          console.log(us.text)
+          return (us.text.toLowerCase().match(this.searchP.toLowerCase()))
         })
       }
     },
