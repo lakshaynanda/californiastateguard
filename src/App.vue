@@ -42,7 +42,6 @@ export default {
   background-color: #18365D;
   color: #17C1FB;
 }
-
 #nav {
   padding: 30px;
   background-color: #18365D;
