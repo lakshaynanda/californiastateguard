@@ -42,6 +42,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.first_name"
                 id="nested-street-1"
@@ -55,6 +56,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.last_name"
                 id="nested-street-2"
@@ -68,13 +70,14 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.name"
                 id="nested-street"
               ></b-form-input>
               <p v-else>{{ form.name }}</p>
             </b-form-group>
-            
+
             <b-form-group
               label="Rank:"
               label-for="nested-city"
@@ -87,7 +90,7 @@
                 :options="ranks"
                 id="nested-city"
               ></b-form-select>
-              <!-- <b-form-input  v-model="form.rank" id="nested-city"></b-form-input> -->
+              <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
               <p v-else>{{ form.rank }}</p>
             </b-form-group>
 
@@ -97,7 +100,7 @@
                 label-cols-sm="3"
                 label-align-sm="right"
               >
-                <b-form-input v-if="editable" v-model="form.age" id="nested-state"></b-form-input>
+                <b-form-input :required=true v-if="editable" v-model="form.age" id="nested-state"></b-form-input>
                 <p v-else>{{ form.age }}</p>
               </b-form-group> -->
 
@@ -121,7 +124,7 @@
                 label-cols-sm="3"
                 label-align-sm="right"
               >
-                <b-form-input v-if="editable" type="password" v-model="form.Current_Duty_Assignment" id="nested-street-98"></b-form-input>
+                <b-form-input :required=true v-if="editable" type="password" v-model="form.Current_Duty_Assignment" id="nested-street-98"></b-form-input>
                 <p v-else>{{ form.Current_Duty_Assignment }}</p>
               </b-form-group> -->
             <!-- </b-form-group> -->
@@ -153,6 +156,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-14"
                 v-model="form.K_of_TTPs_used_by_attackers"
@@ -171,6 +175,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-24"
                 v-model="form.A_to_do_actions_related_to_approved_LoE"
@@ -189,6 +194,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-34"
                 v-model="form.A_to_develop_perform_QA_deliver_LoE"
@@ -207,6 +213,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer1w"
                 v-model="form.K_of_Network_Operating_Systems_"
@@ -225,6 +232,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer2w"
                 v-model="form.K_o_CA_info_tech_roles_reqs_and_org"
@@ -243,6 +251,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer3w"
                 v-model="form.K_of_server_based_applications_"
@@ -261,6 +270,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer4w"
                 v-model="form.K_of_computer_networking_protocols_"
@@ -279,6 +289,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer5w"
                 v-model="form.K_of_network_security__related_concepts"
@@ -297,6 +308,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer6w"
                 v-model="form.A_to_effectively_communicate_"
@@ -315,6 +327,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer7w"
                 v-model="form.A_to__provide_briefings_with_CMD_staff_"
@@ -333,6 +346,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer8w"
                 v-model="form.A_to_deploy_troubleshoot_analyse_CND_tools"
@@ -381,6 +395,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb1"
                 v-model="form.K_of__information_security_standards"
@@ -398,6 +413,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb2"
                 v-model="form.K_of_operational_cybersecurity"
@@ -415,6 +431,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb3"
                 v-model="form.E_in_management_of_IT_security_and_risk"
@@ -432,6 +449,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb4"
                 v-model="form.E_in_internal_and_external_audits_exams"
@@ -449,6 +467,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb5"
                 v-model="form.E_in__policies_procedures_and_standards"
@@ -495,6 +514,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk1"
                 v-model="form.E_w_system_admin_or_hardening_techniques"
@@ -512,6 +532,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk2"
                 v-model="form.K_of_common_network_tools"
@@ -529,6 +550,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk3"
                 v-model="form.E_using_CND_vuln_tools_"
@@ -546,6 +568,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk4"
                 v-model="form.S_in_vulnerability_scans"
@@ -563,6 +586,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk5"
                 v-model="form.S_in_collecting_system__policy_artifacts"
@@ -580,6 +604,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk6"
                 v-model="form.K_of_CND__policies_procedures_and_regs"
@@ -597,6 +622,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk7"
                 v-model="form.E_in_TTPs_pen_test_and_Red_Team"
@@ -614,6 +640,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk9"
                 v-model="form.A_to_direct_mentor_guide"
@@ -631,6 +658,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk10"
                 v-model="form.E_in_Defense_In_Depth_"
@@ -648,6 +676,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk11"
                 v-model="form.K_of_network_protocols_"
@@ -665,6 +694,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk12"
                 v-model="form.K_of_access_control__and_application"
@@ -682,6 +712,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk13"
                 v-model="form.K_of_network_traffic_flows__TCP_IP_OSI"
@@ -699,6 +730,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk14"
                 v-model="form.E_in_use_of_network_vuln_tools"
@@ -716,6 +748,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk15"
                 v-model="form.E_in_using_protocol_analyzers"
@@ -733,6 +766,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk17"
                 v-model="form.E_in_equip_inventory_readiness_data_san"
@@ -750,6 +784,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk18"
                 v-model="form.A_to_assess__Defense_in_Depth_"
@@ -767,6 +802,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk19"
                 v-model="form.A_to_review__network_topologies_"
@@ -784,6 +820,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk20"
                 v-model="form.A_to_perform__network_mapping"
@@ -801,6 +838,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk21"
                 v-model="form.E_in_providing_Tier_II_analysis"
@@ -818,6 +856,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk22"
                 v-model="form.A_to_review_detected_malicious_activity_"
@@ -835,6 +874,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk23"
                 v-model="form.Knowledge_of_VPN_security"
@@ -881,6 +921,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt1"
                 v-model="form.K0004"
@@ -898,6 +939,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt2"
                 v-model="form.K0003"
@@ -915,6 +957,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt3"
                 v-model="form.K0006"
@@ -932,6 +975,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt4"
                 v-model="form.K0015"
@@ -949,6 +993,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt5"
                 v-model="form.K0018"
@@ -966,6 +1011,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt6"
                 v-model="form.K0019"
@@ -983,6 +1029,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt7"
                 v-model="form.K0026"
@@ -1000,6 +1047,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt9"
                 v-model="form.K0040"
@@ -1017,6 +1065,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt10"
                 v-model="form.K0041"
@@ -1034,6 +1083,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt11"
                 v-model="form.K0042"
@@ -1051,6 +1101,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt12"
                 v-model="form.K0044"
@@ -1068,6 +1119,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt13"
                 v-model="form.K0046"
@@ -1085,6 +1137,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt14"
                 v-model="form.K0049"
@@ -1102,6 +1155,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt15"
                 v-model="form.K0059"
@@ -1119,6 +1173,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt17"
                 v-model="form.K0070"
@@ -1136,6 +1191,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt18"
                 v-model="form.K0093"
@@ -1153,6 +1209,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt19"
                 v-model="form.K0107"
@@ -1170,6 +1227,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt20"
                 v-model="form.K0116"
@@ -1187,6 +1245,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt21"
                 v-model="form.K0142"
@@ -1204,6 +1263,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt22"
                 v-model="form.K0157"
@@ -1221,6 +1281,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt23"
                 v-model="form.K0160"
@@ -1238,6 +1299,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt24"
                 v-model="form.K0161"
@@ -1255,6 +1317,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt25"
                 v-model="form.K0162"
@@ -1272,6 +1335,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt26"
                 v-model="form.K0177"
@@ -1289,6 +1353,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt27"
                 v-model="form.K0180"
@@ -1306,6 +1371,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt28"
                 v-model="form.K0190"
@@ -1323,6 +1389,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt29"
                 v-model="form.K0191"
@@ -1340,6 +1407,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt30"
                 v-model="form.K0192"
@@ -1357,6 +1425,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt31"
                 v-model="form.K0203"
@@ -1374,6 +1443,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt32"
                 v-model="form.K0259"
@@ -1391,6 +1461,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt33"
                 v-model="form.K0287"
@@ -1408,6 +1479,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt34"
                 v-model="form.K0322"
@@ -1425,6 +1497,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt35"
                 v-model="form.K0624"
@@ -1442,6 +1515,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt36"
                 v-model="form.S0020"
@@ -1459,6 +1533,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt37"
                 v-model="form.S0169"
@@ -1476,6 +1551,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt38"
                 v-model="form.S0365"
@@ -1493,6 +1569,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt39"
                 v-model="form.A0066"
@@ -1510,6 +1587,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt40"
                 v-model="form.A0121"
@@ -1527,6 +1605,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt41"
                 v-model="form.A0123"
@@ -1573,6 +1652,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct1"
                 v-model="form.Malware_Detection_PC_Windows"
@@ -1590,6 +1670,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct2"
                 v-model="form.Malware_Detection_PC_Mac"
@@ -1607,6 +1688,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct3"
                 v-model="form.Malware_Detection_PC_Linux"
@@ -1624,6 +1706,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct4"
                 v-model="form.Malware_Detection_Mobile_Android"
@@ -1641,6 +1724,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct5"
                 v-model="form.Malware_Detection_Mobile_IOS"
@@ -1658,6 +1742,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct6"
                 v-model="form.Setting_up_VPNs"
@@ -1675,6 +1760,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct7"
                 v-model="form.Setting_up_secure_wired_LAN"
@@ -1692,6 +1778,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct9"
                 v-model="form.Setting_up_secure_wireless_LAN"
@@ -1709,6 +1796,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct10"
                 v-model="form.Configure_and_harden_networks"
@@ -1725,7 +1813,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct11"
               v-model="form.Aircrack_ng"
@@ -1742,7 +1830,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct12"
               v-model="form.Autopsy"
@@ -1759,7 +1847,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct13"
               v-model="form.Cisco"
@@ -1776,7 +1864,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct14"
               v-model="form.Darktrace"
@@ -1793,7 +1881,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct15"
               v-model="form.Elasticsearch"
@@ -1810,7 +1898,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct17"
               v-model="form.EnCase"
@@ -1827,7 +1915,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct18"
               v-model="form.Eyewitness"
@@ -1844,7 +1932,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct19"
               v-model="form.Forensic_Tool_Kit"
@@ -1861,7 +1949,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct20"
               v-model="form.Kali_Linux"
@@ -1878,7 +1966,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct21"
               v-model="form.Kibana"
@@ -1895,7 +1983,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct22"
               v-model="form.Logstash"
@@ -1912,7 +2000,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct23"
               v-model="form.Logzilla"
@@ -1929,7 +2017,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct24"
               v-model="form.Metasploit"
@@ -1946,7 +2034,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct25"
               v-model="form.Nessus"
@@ -1963,7 +2051,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct26"
               v-model="form.NetSim"
@@ -1980,7 +2068,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct27"
               v-model="form.Nmap"
@@ -1997,7 +2085,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct28"
               v-model="form.Octopussy"
@@ -2014,7 +2102,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct29"
               v-model="form.Packet_Tracer"
@@ -2031,7 +2119,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct30"
               v-model="form.Palo_Alto"
@@ -2048,7 +2136,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct31"
               v-model="form.Security_Onion"
@@ -2065,7 +2153,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct32"
               v-model="form.Shodan"
@@ -2082,7 +2170,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct33"
               v-model="form.SIFT"
@@ -2099,7 +2187,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct34"
               v-model="form.Snort"
@@ -2116,7 +2204,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct35"
               v-model="form.Sophos"
@@ -2133,7 +2221,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct36"
               v-model="form.Splunk"
@@ -2150,7 +2238,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct37"
               v-model="form.Sumologic"
@@ -2167,7 +2255,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct38"
               v-model="form.Suricata"
@@ -2184,7 +2272,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct39"
               v-model="form.Wireshark"
@@ -2231,6 +2319,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct11"
                 v-model="form.Aircrack_ng"
@@ -2248,6 +2337,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct12"
                 v-model="form.Autopsy"
@@ -2265,6 +2355,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct13"
                 v-model="form.Cisco"
@@ -2282,6 +2373,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct14"
                 v-model="form.Darktrace"
@@ -2299,6 +2391,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct15"
                 v-model="form.Elasticsearch"
@@ -2316,6 +2409,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct17"
                 v-model="form.EnCase"
@@ -2333,6 +2427,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct18"
                 v-model="form.Eyewitness"
@@ -2350,6 +2445,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct19"
                 v-model="form.Forensic_Tool_Kit"
@@ -2367,6 +2463,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct20"
                 v-model="form.Kali_Linux"
@@ -2384,6 +2481,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct21"
                 v-model="form.Kibana"
@@ -2401,6 +2499,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct22"
                 v-model="form.Logstash"
@@ -2418,6 +2517,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct23"
                 v-model="form.Logzilla"
@@ -2435,6 +2535,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct24"
                 v-model="form.Metasploit"
@@ -2452,6 +2553,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct25"
                 v-model="form.Nessus"
@@ -2469,6 +2571,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct26"
                 v-model="form.NetSim"
@@ -2486,6 +2589,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct27"
                 v-model="form.Nmap"
@@ -2503,6 +2607,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct28"
                 v-model="form.Octopussy"
@@ -2520,6 +2625,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct29"
                 v-model="form.Packet_Tracer"
@@ -2537,6 +2643,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct30"
                 v-model="form.Palo_Alto"
@@ -2554,6 +2661,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct31"
                 v-model="form.Security_Onion"
@@ -2571,6 +2679,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct32"
                 v-model="form.Shodan"
@@ -2588,6 +2697,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct33"
                 v-model="form.SIFT"
@@ -2605,6 +2715,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct34"
                 v-model="form.Snort"
@@ -2622,6 +2733,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct35"
                 v-model="form.Sophos"
@@ -2639,6 +2751,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct36"
                 v-model="form.Splunk"
@@ -2656,6 +2769,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct37"
                 v-model="form.Sumologic"
@@ -2673,6 +2787,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct38"
                 v-model="form.Suricata"
@@ -2690,6 +2805,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct39"
                 v-model="form.Wireshark"
@@ -2736,6 +2852,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et1"
                 v-model="form.Ciscoone"
@@ -2753,6 +2870,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et2"
                 v-model="form.CrowdStrike"
@@ -2770,6 +2888,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et3"
                 v-model="form.FireEye"
@@ -2787,6 +2906,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et4"
                 v-model="form.Juniper"
@@ -2804,6 +2924,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et5"
                 v-model="form.Sophosone"
@@ -2821,6 +2942,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et6"
                 v-model="form.Symantec"
@@ -2867,6 +2989,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc1"
                 v-model="form.C"
@@ -2884,6 +3007,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc2"
                 v-model="form.Cplusplus"
@@ -2901,6 +3025,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc3"
                 v-model="form.Java"
@@ -2918,6 +3043,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc4"
                 v-model="form.Javascript"
@@ -2935,6 +3061,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc5"
                 v-model="form.php"
@@ -2952,6 +3079,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc6"
                 v-model="form.PowerShell"
@@ -2969,6 +3097,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc7"
                 v-model="form.Python"
@@ -2986,6 +3115,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc8"
                 v-model="form.Bash"
@@ -3032,6 +3162,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="CC1"
                 v-model="form.Aplus"
@@ -3049,6 +3180,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc2"
                 v-model="form.CCN"
@@ -3066,6 +3198,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc3"
                 v-model="form.CCSA"
@@ -3083,6 +3216,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc4"
                 v-model="form.CEH"
@@ -3100,6 +3234,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc5"
                 v-model="form.CISA"
@@ -3117,6 +3252,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc6"
                 v-model="form.CISM"
@@ -3134,6 +3270,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc7"
                 v-model="form.CISSP"
@@ -3151,6 +3288,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc8"
                 v-model="form.CPP"
@@ -3168,6 +3306,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc9"
                 v-model="form.CSSLP"
@@ -3185,6 +3324,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc10"
                 v-model="form.CSX"
@@ -3202,6 +3342,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc11"
                 v-model="form.CTTplus"
@@ -3219,6 +3360,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc12"
                 v-model="form.GCPM"
@@ -3236,6 +3378,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc13"
                 v-model="form.GIAC"
@@ -3253,6 +3396,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc14"
                 v-model="form.GPEN"
@@ -3270,6 +3414,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc15"
                 v-model="form.GSLC"
@@ -3287,6 +3432,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc16"
                 v-model="form.GXPN"
@@ -3304,6 +3450,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc17"
                 v-model="form.MCP"
@@ -3321,6 +3468,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc18"
                 v-model="form.MTA"
@@ -3338,6 +3486,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc19"
                 v-model="form.Networkplus"
@@ -3355,6 +3504,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc20"
                 v-model="form.SANS"
@@ -3372,6 +3522,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc21"
                 v-model="form.Securityplus"
@@ -3389,6 +3540,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc22"
                 v-model="form.Six_Sigma"
@@ -3550,7 +3702,7 @@ export default {
         A0123: "",
         Bash: "",
         C: "",
-        Cisco: '',
+        Cisco: "",
         Cplusplus: "",
         Java: "",
         Javascript: "",
@@ -3671,192 +3823,258 @@ export default {
       mainApi.getServiceMemberInd(this.uname, this.upass).then((response) => {
         // (this.form.age = response.data.records[0].Age__c),
         // console.log(response)
-        this.form.Current_Duty_Assignment= response.data.records[0].Current_Duty_Assignment__c,
-          this.form.K_of_TTPs_used_by_attackers= response.data.records[0].K_of_TTPs_used_by_attackers__c,
-          this.form.A_to_do_actions_related_to_approved_LoE= response.data.records[0].A_to_do_actions_related_to_approved_LoE__c,
-          this.form.A_to_develop_perform_QA_deliver_LoE= response.data.records[0].A_to_develop_perform_QA_deliver_LoE__c,
-          this.form.K_of_Network_Operating_Systems_= response.data.records[0].K_of_Network_Operating_Systems__c,
-          this.form.K_o_CA_info_tech_roles_reqs_and_org= response.data.records[0].K_o_CA_info_tech_roles_reqs_and_org__c
-            ,
-          this.form.K_of_server_based_applications_= response.data.records[0].K_of_server_based_applications__c
-            ,
-          this.form.K_of_computer_networking_protocols_= response.data.records[0].K_of_computer_networking_protocols__c
-            ,
-          this.form.K_of_network_security__related_concepts= response.data.records[0].K_of_network_security_related_concepts__c
-            ,
-          this.form.A_to_effectively_communicate_= response.data.records[0].A_to_effectively_communicate__c
-            ,
-          this.form.A_to__provide_briefings_with_CMD_staff_= response.data.records[0].A_to_provide_briefings_with_CMD_staff__c
-            ,
-          this.form.A_to_deploy_troubleshoot_analyse_CND_tools= response.data.records[0].A_to_deploy_troubleshoot_analyse_CND_too__c
-            ,
-          this.form.E_w_system_admin_or_hardening_techniques= response.data.records[0].E_w_system_admin_or_hardening_techniques__c
-            ,
-          this.form.K_of_common_network_tools= response.data.records[0].K_of_common_network_tools__c ,
-          this.form.E_using_CND_vuln_tools_= response.data.records[0].E_using_CND_vuln_tools__c ,
-          this.form.S_in_vulnerability_scans= response.data.records[0].S_in_vulnerability_scans__c,
-          this.form.S_in_collecting_system__policy_artifacts= response.data.records[0].S_in_collecting_system_policy_artifacts__c
-            ,
-          this.form.K_of_CND__policies_procedures_and_regs= response.data.records[0].K_of_CND_policies_procedures_and_regs__c
-            ,
-          this.form.E_in_TTPs_pen_test_and_Red_Team= response.data.records[0].E_in_TTPs_pen_test_and_Red_Team__c
-            ,
-          this.form.A_to_direct_mentor_guide= response.data.records[0].A_to_direct_mentor_guide__c ,
-          this.form.E_in_Defense_In_Depth_= response.data.records[0].E_in_Defense_In_Depth__c,
-          this.form.K_of_network_protocols_= response.data.records[0].K_of_network_protocols__c,
-          this.form.K_of_access_control__and_application= response.data.records[0].K_of_access_control_and_application__c
-            ,
-          this.form.K_of_network_traffic_flows__TCP_IP_OSI= response.data.records[0].K_of_network_traffic_flows_TCP_IP_OSI__c
-            ,
-          this.form.E_in_use_of_network_vuln_tools= response.data.records[0].E_in_use_of_network_vuln_tools__c
-            ,
-          this.form.E_in_using_protocol_analyzers= response.data.records[0].E_in_using_protocol_analyzers__c
-            ,
-          this.form.E_in_equip_inventory_readiness_data_san= response.data.records[0].E_in_equip_inventory_readiness_data_san__c
-            ,
-          this.form.A_to_assess__Defense_in_Depth_= response.data.records[0].A_to_assess_Defense_in_Depth__c
-            ,
-          this.form.A_to_review__network_topologies_= response.data.records[0].A_to_review_network_topologies__c
-            ,
-          this.form.A_to_perform__network_mapping= response.data.records[0].A_to_perform_network_mapping__c
-            ,
-          this.form.E_in_providing_Tier_II_analysis= response.data.records[0].E_in_providing_Tier_II_analysis__c
-            ,
-          this.form.A_to_review_detected_malicious_activity_= response.data.records[0].A_to_review_detected_malicious_activity__c
-            ,
-          this.form.Knowledge_of_VPN_security= response.data.records[0].Knowledge_of_VPN_security__c,
-          this.form.K_of__information_security_standards= response.data.records[0].K_of_information_security_standards__c
-            ,
-          this.form.K_of_operational_cybersecurity= response.data.records[0].K_of_operational_cybersecurity__c
-            ,
-          this.form.E_in_management_of_IT_security_and_risk= response.data.records[0].E_in_management_of_IT_security_and_risk__c
-            ,
-          this.form.E_in_internal_and_external_audits_exams= response.data.records[0].E_in_internal_and_external_audits_exams__c
-            ,
-          this.form.E_in__policies_procedures_and_standards= response.data.records[0].E_in_policies_procedures_and_standards__c
-            ,
-          this.form.K0004= response.data.records[0].K0004__c ,
-          this.form.K0003= response.data.records[0].K0003__c ,
-          this.form.K0006= response.data.records[0].K0006__c,
-          this.form.K0015= response.data.records[0].K0015__c ,
-          this.form.K0018= response.data.records[0].K0018__c ,
-          this.form.K0019= response.data.records[0].K0019__c ,
-          this.form.K0026= response.data.records[0].K0026__c ,
-          this.form.K0040= response.data.records[0].K0040__c ,
-          this.form.K0041= response.data.records[0].K0041__c ,
-          this.form.K0042= response.data.records[0].K0042__c ,
-          this.form.K0044= response.data.records[0].K0044__c ,
-          this.form.K0046= response.data.records[0].K0046__c ,
-          this.form.K0049= response.data.records[0].K0049__c ,
-          this.form.K0059= response.data.records[0].K0059__c ,
-          this.form.K0070= response.data.records[0].K0070__c ,
-          this.form.K0093= response.data.records[0].K0093__c ,
-          this.form.K0107= response.data.records[0].K0107__c ,
-          this.form.K0116= response.data.records[0].K0116__c ,
-          this.form.K0142= response.data.records[0].K0142__c ,
-          this.form.K0157= response.data.records[0].K0157__c ,
-          this.form.K0160= response.data.records[0].K0160__c ,
-          this.form.K0161= response.data.records[0].K0161__c ,
-          this.form.K0162= response.data.records[0].K0162__c ,
-          this.form.K0177= response.data.records[0].K0177__c ,
-          this.form.K0180= response.data.records[0].K0180__c ,
-          this.form.K0190= response.data.records[0].K0190__c ,
-          this.form.K0191= response.data.records[0].K0191__c ,
-          this.form.K0192= response.data.records[0].K0192__c ,
-          this.form.K0203= response.data.records[0].K0203__c ,
-          this.form.K0259= response.data.records[0].K0259__c ,
-          this.form.K0287= response.data.records[0].K0287__c ,
-          this.form.K0322= response.data.records[0].K0322__c ,
-          this.form.K0624= response.data.records[0].K0624__c ,
-          this.form.S0020= response.data.records[0].S0020__c ,
-          this.form.S0169= response.data.records[0].S0169__c ,
-          this.form.S0365= response.data.records[0].S0365__c ,
-          this.form.A0066= response.data.records[0].A0066__c ,
-          this.form.A0121= response.data.records[0].A0121__c ,
-          this.form.A0123= response.data.records[0].A0123__c ,
+        (this.form.Current_Duty_Assignment =
+          response.data.records[0].Current_Duty_Assignment__c),
+          (this.form.K_of_TTPs_used_by_attackers =
+            response.data.records[0].K_of_TTPs_used_by_attackers__c),
+          (this.form.A_to_do_actions_related_to_approved_LoE =
+            response.data.records[0].A_to_do_actions_related_to_approved_LoE__c),
+          (this.form.A_to_develop_perform_QA_deliver_LoE =
+            response.data.records[0].A_to_develop_perform_QA_deliver_LoE__c),
+          (this.form.K_of_Network_Operating_Systems_ =
+            response.data.records[0].K_of_Network_Operating_Systems__c),
+          (this.form.K_o_CA_info_tech_roles_reqs_and_org =
+            response.data.records[0].K_o_CA_info_tech_roles_reqs_and_org__c),
+          (this.form.K_of_server_based_applications_ =
+            response.data.records[0].K_of_server_based_applications__c),
+          (this.form.K_of_computer_networking_protocols_ =
+            response.data.records[0].K_of_computer_networking_protocols__c),
+          (this.form.K_of_network_security__related_concepts =
+            response.data.records[0].K_of_network_security_related_concepts__c),
+          (this.form.A_to_effectively_communicate_ =
+            response.data.records[0].A_to_effectively_communicate__c),
+          (this.form.A_to__provide_briefings_with_CMD_staff_ =
+            response.data.records[0].A_to_provide_briefings_with_CMD_staff__c),
+          (this.form.A_to_deploy_troubleshoot_analyse_CND_tools =
+            response.data.records[0].A_to_deploy_troubleshoot_analyse_CND_too__c),
+          (this.form.E_w_system_admin_or_hardening_techniques =
+            response.data.records[0].E_w_system_admin_or_hardening_techniques__c),
+          (this.form.K_of_common_network_tools =
+            response.data.records[0].K_of_common_network_tools__c),
+          (this.form.E_using_CND_vuln_tools_ =
+            response.data.records[0].E_using_CND_vuln_tools__c),
+          (this.form.S_in_vulnerability_scans =
+            response.data.records[0].S_in_vulnerability_scans__c),
+          (this.form.S_in_collecting_system__policy_artifacts =
+            response.data.records[0].S_in_collecting_system_policy_artifacts__c),
+          (this.form.K_of_CND__policies_procedures_and_regs =
+            response.data.records[0].K_of_CND_policies_procedures_and_regs__c),
+          (this.form.E_in_TTPs_pen_test_and_Red_Team =
+            response.data.records[0].E_in_TTPs_pen_test_and_Red_Team__c),
+          (this.form.A_to_direct_mentor_guide =
+            response.data.records[0].A_to_direct_mentor_guide__c),
+          (this.form.E_in_Defense_In_Depth_ =
+            response.data.records[0].E_in_Defense_In_Depth__c),
+          (this.form.K_of_network_protocols_ =
+            response.data.records[0].K_of_network_protocols__c),
+          (this.form.K_of_access_control__and_application =
+            response.data.records[0].K_of_access_control_and_application__c),
+          (this.form.K_of_network_traffic_flows__TCP_IP_OSI =
+            response.data.records[0].K_of_network_traffic_flows_TCP_IP_OSI__c),
+          (this.form.E_in_use_of_network_vuln_tools =
+            response.data.records[0].E_in_use_of_network_vuln_tools__c),
+          (this.form.E_in_using_protocol_analyzers =
+            response.data.records[0].E_in_using_protocol_analyzers__c),
+          (this.form.E_in_equip_inventory_readiness_data_san =
+            response.data.records[0].E_in_equip_inventory_readiness_data_san__c),
+          (this.form.A_to_assess__Defense_in_Depth_ =
+            response.data.records[0].A_to_assess_Defense_in_Depth__c),
+          (this.form.A_to_review__network_topologies_ =
+            response.data.records[0].A_to_review_network_topologies__c),
+          (this.form.A_to_perform__network_mapping =
+            response.data.records[0].A_to_perform_network_mapping__c),
+          (this.form.E_in_providing_Tier_II_analysis =
+            response.data.records[0].E_in_providing_Tier_II_analysis__c),
+          (this.form.A_to_review_detected_malicious_activity_ =
+            response.data.records[0].A_to_review_detected_malicious_activity__c),
+          (this.form.Knowledge_of_VPN_security =
+            response.data.records[0].Knowledge_of_VPN_security__c),
+          (this.form.K_of__information_security_standards =
+            response.data.records[0].K_of_information_security_standards__c),
+          (this.form.K_of_operational_cybersecurity =
+            response.data.records[0].K_of_operational_cybersecurity__c),
+          (this.form.E_in_management_of_IT_security_and_risk =
+            response.data.records[0].E_in_management_of_IT_security_and_risk__c),
+          (this.form.E_in_internal_and_external_audits_exams =
+            response.data.records[0].E_in_internal_and_external_audits_exams__c),
+          (this.form.E_in__policies_procedures_and_standards =
+            response.data.records[0].E_in_policies_procedures_and_standards__c),
+          (this.form.K0004 = response.data.records[0].K0004__c),
+          (this.form.K0003 = response.data.records[0].K0003__c),
+          (this.form.K0006 = response.data.records[0].K0006__c),
+          (this.form.K0015 = response.data.records[0].K0015__c),
+          (this.form.K0018 = response.data.records[0].K0018__c),
+          (this.form.K0019 = response.data.records[0].K0019__c),
+          (this.form.K0026 = response.data.records[0].K0026__c),
+          (this.form.K0040 = response.data.records[0].K0040__c),
+          (this.form.K0041 = response.data.records[0].K0041__c),
+          (this.form.K0042 = response.data.records[0].K0042__c),
+          (this.form.K0044 = response.data.records[0].K0044__c),
+          (this.form.K0046 = response.data.records[0].K0046__c),
+          (this.form.K0049 = response.data.records[0].K0049__c),
+          (this.form.K0059 = response.data.records[0].K0059__c),
+          (this.form.K0070 = response.data.records[0].K0070__c),
+          (this.form.K0093 = response.data.records[0].K0093__c),
+          (this.form.K0107 = response.data.records[0].K0107__c),
+          (this.form.K0116 = response.data.records[0].K0116__c),
+          (this.form.K0142 = response.data.records[0].K0142__c),
+          (this.form.K0157 = response.data.records[0].K0157__c),
+          (this.form.K0160 = response.data.records[0].K0160__c),
+          (this.form.K0161 = response.data.records[0].K0161__c),
+          (this.form.K0162 = response.data.records[0].K0162__c),
+          (this.form.K0177 = response.data.records[0].K0177__c),
+          (this.form.K0180 = response.data.records[0].K0180__c),
+          (this.form.K0190 = response.data.records[0].K0190__c),
+          (this.form.K0191 = response.data.records[0].K0191__c),
+          (this.form.K0192 = response.data.records[0].K0192__c),
+          (this.form.K0203 = response.data.records[0].K0203__c),
+          (this.form.K0259 = response.data.records[0].K0259__c),
+          (this.form.K0287 = response.data.records[0].K0287__c),
+          (this.form.K0322 = response.data.records[0].K0322__c),
+          (this.form.K0624 = response.data.records[0].K0624__c),
+          (this.form.S0020 = response.data.records[0].S0020__c),
+          (this.form.S0169 = response.data.records[0].S0169__c),
+          (this.form.S0365 = response.data.records[0].S0365__c),
+          (this.form.A0066 = response.data.records[0].A0066__c),
+          (this.form.A0121 = response.data.records[0].A0121__c),
+          (this.form.A0123 = response.data.records[0].A0123__c),
           // age__c: this.form.age,
-          this.form.Bash= response.data.records[0].Scripting_and_Programming_Tools_Bash__c,
-          this.form.C= response.data.records[0].Scripting_and_Programming_Tools_C__c,
-          this.form.Cplusplus= response.data.records[0].Scripting_and_Programming_Tools_C_1__c,
-          this.form.Java= response.data.records[0].Scripting_and_Programming_Tools_Java__c,
-          this.form.Javascript= response.data.records[0].Scripting_Programming_Tools_Javascript__c,
-          this.form.php= response.data.records[0].Scripting_and_Programming_Tools_php__c,
-          this.form.PowerShell= response.data.records[0].Scripting_Programming_Tools_PowerShell__c,
-          this.form.Python= response.data.records[0].Scripting_and_Programming_Tools_Python__c,
-          this.form.Ciscoone= response.data.records[0].Endpoint_tools_Cisco__c,
-          this.form.CrowdStrike= response.data.records[0].Endpoint_tools_CrowdStrike__c,
-          this.form.FireEye= response.data.records[0].Endpoint_tools_FireEye__c,
-          this.form.Juniper= response.data.records[0].Endpoint_tools_Juniper__c,
-          this.form.Symantec= response.data.records[0].Endpoint_tools_Symantec_Norton__c,
-          this.form.Sophosone= response.data.records[0].Endpoint_tools_Sophos__c,
-          this.form.Aircrack_ng= response.data.records[0].Cybersecurity_Tools_Aircrack_ng__c,
-          this.form.Autopsy= response.data.records[0].Cybersecurity_Tools_Autopsy__c,
-          this.form.Cisco= response.data.records[0].Cybersecurity_Tools_Cisco__c,
-          this.form.Darktrace= response.data.records[0].Cybersecurity_Tools_Darktrace__c,
-          this.form.Elasticsearch= response.data.records[0].Cybersecurity_Tools_Elasticsearch__c,
-          this.form.EnCase= response.data.records[0].Cybersecurity_Tools_EnCase__c,
-          this.form.Eyewitness= response.data.records[0].Cybersecurity_Tools_Eyewitness__c,
-          this.form.Forensic_Tool_Kit= response.data.records[0].Cybersecurity_Tools_Forensic_Tool_Kit__c,
-          this.form.Kali_Linux= response.data.records[0].Cybersecurity_Tools_Kali_Linux__c,
-          this.form.Kibana= response.data.records[0].Cybersecurity_Tools_Kibana__c,
-          this.form.Logstash= response.data.records[0].Cybersecurity_Tools_Logstash__c,
-          this.form.Logzilla= response.data.records[0].Cybersecurity_Tools_Logzilla__c,
-          this.form.Metasploit= response.data.records[0].Cybersecurity_Tools_Metasploit__c,
-          this.form.Nessus= response.data.records[0].Cybersecurity_Tools_Nessus__c,
-          this.form.NetSim= response.data.records[0].Cybersecurity_Tools_NetSim__c,
-          this.form.Nmap= response.data.records[0].Cybersecurity_Tools_Nmap__c,
-          this.form.Octopussy= response.data.records[0].Cybersecurity_Tools_Octopussy__c,
-          this.form.Packet_Tracer= response.data.records[0].Cybersecurity_Tools_Packet_Tracer__c,
-           this.form.Palo_Alto= response.data.records[0].Cybersecurity_Tools_Palo_Alto__c,
-          this.form.Security_Onion= response.data.records[0].Cybersecurity_Tools_Security_Onion__c,
-          this.form.Shodan= response.data.records[0].Cybersecurity_Tools_Shodan__c,
-           this.form.SIFT= response.data.records[0].Cybersecurity_Tools_SIFT__c,
-          this.form.Snort= response.data.records[0].Cybersecurity_Tools_Snort__c,
-          this.form.Sophos= response.data.records[0].Cybersecurity_Tools_Sophos__c,
-          this.form.Splunk= response.data.records[0].Cybersecurity_Tools_Splunk__c,
-          this.form.Sumologic= response.data.records[0].Cybersecurity_Tools_Sumologic__c,
-          this.form.Suricata= response.data.records[0].Cybersecurity_Tools_Suricata__c,
-          this.form.Wireshark= response.data.records[0].Cybersecurity_Tools_Wireshark__c,
-          this.form.Malware_Detection_PC_Windows= response.data.records[0].Malware_Detection_Prof_PC_Windows__c,
-          this.form.Malware_Detection_PC_Mac= response.data.records[0].Malware_Detection_Proficiency_PC_Mac__c,
-          this.form.Malware_Detection_PC_Linux= response.data.records[0].Malware_Detection_Proficiency_PC_Linux__c,
-          this.form.Malware_Detection_Mobile_Android= response.data.records[0].Malware_Detection_Prof_Mobile_Android__c,
-          this.form.Malware_Detection_Mobile_IOS= response.data.records[0].Malware_Detection_Prof_Mobile_IOS__c,
-          this.form.Setting_up_VPNs= response.data.records[0].Proficiency_in_setting_up_VPNs__c,
-          this.form.Setting_up_secure_wired_LAN= response.data.records[0].Prof_in_setting_up_secure_wired_LAN__c,
-          this.form.Setting_up_secure_wireless_LAN= response.data.records[0].Prof_in_setting_up_secure_wireless_LAN__c,
-          this.form.Configure_and_harden_networks= response.data.records[0].Prof_in_configuring_hardening_networks__c,
-          this.form.Aplus= response.data.records[0].Certifications_Aplus__c,
-          this.form.CCN= response.data.records[0].Certifications_CCN__c,
-          this.form.CCSA= response.data.records[0].Certifications_CCSA__c,
-          this.form.CEH= response.data.records[0].Certifications_CEH__c,
-          this.form.CISA= response.data.records[0].Certifications_CISA__c,
-          this.form.CISM= response.data.records[0].Certifications_CISM__c,
-          this.form.CISSP= response.data.records[0].Certifications_CISSP__c,
-          this.form.CPP= response.data.records[0].Certifications_CPP__c,
-          this.form.CSSLP= response.data.records[0].Certifications_CSSLP__c,
-          this.form.CSX= response.data.records[0].Certifications_CSX__c,
-          this.form.CTTplus= response.data.records[0].Certifications_CTT__c,
-          this.form.GCPM= response.data.records[0].Certifications_GCPM__c,
-          this.form.GIAC= response.data.records[0].Certifications_GIAC__c,
-          this.form.GPEN= response.data.records[0].Certifications_GPEN__c,
-          this.form.GSLC= response.data.records[0].Certifications_GSLC__c,
-          this.form.GXPN= response.data.records[0].Certifications_GXPN__c,
-          this.form.MCP= response.data.records[0].Certifications_MCP__c,
-          this.form.MTA= response.data.records[0].Certifications_MTA__c,
-          this.form.Networkplus= response.data.records[0].Certifications_Network__c,
-          this.form.SANS= response.data.records[0].Certifications_SANS__c,
-          this.form.Securityplus= response.data.records[0].Certifications_Security__c,
-          this.form.Six_Sigma= response.data.records[0].Certifications_Six_Sigma__c,
-          this.form.first_name= response.data.records[0].FirstName__c,
-          this.form.last_name= response.data.records[0].LastName__c,
-          this.form.name= response.data.records[0].Name,
-          this.form.password= response.data.records[0].password__c,
-          this.form.rank= response.data.records[0].GradeRank__c,
+          (this.form.Bash =
+            response.data.records[0].Scripting_and_Programming_Tools_Bash__c),
+          (this.form.C =
+            response.data.records[0].Scripting_and_Programming_Tools_C__c),
+          (this.form.Cplusplus =
+            response.data.records[0].Scripting_and_Programming_Tools_C_1__c),
+          (this.form.Java =
+            response.data.records[0].Scripting_and_Programming_Tools_Java__c),
+          (this.form.Javascript =
+            response.data.records[0].Scripting_Programming_Tools_Javascript__c),
+          (this.form.php =
+            response.data.records[0].Scripting_and_Programming_Tools_php__c),
+          (this.form.PowerShell =
+            response.data.records[0].Scripting_Programming_Tools_PowerShell__c),
+          (this.form.Python =
+            response.data.records[0].Scripting_and_Programming_Tools_Python__c),
+          (this.form.Ciscoone =
+            response.data.records[0].Endpoint_tools_Cisco__c),
+          (this.form.CrowdStrike =
+            response.data.records[0].Endpoint_tools_CrowdStrike__c),
+          (this.form.FireEye =
+            response.data.records[0].Endpoint_tools_FireEye__c),
+          (this.form.Juniper =
+            response.data.records[0].Endpoint_tools_Juniper__c),
+          (this.form.Symantec =
+            response.data.records[0].Endpoint_tools_Symantec_Norton__c),
+          (this.form.Sophosone =
+            response.data.records[0].Endpoint_tools_Sophos__c),
+          (this.form.Aircrack_ng =
+            response.data.records[0].Cybersecurity_Tools_Aircrack_ng__c),
+          (this.form.Autopsy =
+            response.data.records[0].Cybersecurity_Tools_Autopsy__c),
+          (this.form.Cisco =
+            response.data.records[0].Cybersecurity_Tools_Cisco__c),
+          (this.form.Darktrace =
+            response.data.records[0].Cybersecurity_Tools_Darktrace__c),
+          (this.form.Elasticsearch =
+            response.data.records[0].Cybersecurity_Tools_Elasticsearch__c),
+          (this.form.EnCase =
+            response.data.records[0].Cybersecurity_Tools_EnCase__c),
+          (this.form.Eyewitness =
+            response.data.records[0].Cybersecurity_Tools_Eyewitness__c),
+          (this.form.Forensic_Tool_Kit =
+            response.data.records[0].Cybersecurity_Tools_Forensic_Tool_Kit__c),
+          (this.form.Kali_Linux =
+            response.data.records[0].Cybersecurity_Tools_Kali_Linux__c),
+          (this.form.Kibana =
+            response.data.records[0].Cybersecurity_Tools_Kibana__c),
+          (this.form.Logstash =
+            response.data.records[0].Cybersecurity_Tools_Logstash__c),
+          (this.form.Logzilla =
+            response.data.records[0].Cybersecurity_Tools_Logzilla__c),
+          (this.form.Metasploit =
+            response.data.records[0].Cybersecurity_Tools_Metasploit__c),
+          (this.form.Nessus =
+            response.data.records[0].Cybersecurity_Tools_Nessus__c),
+          (this.form.NetSim =
+            response.data.records[0].Cybersecurity_Tools_NetSim__c),
+          (this.form.Nmap =
+            response.data.records[0].Cybersecurity_Tools_Nmap__c),
+          (this.form.Octopussy =
+            response.data.records[0].Cybersecurity_Tools_Octopussy__c),
+          (this.form.Packet_Tracer =
+            response.data.records[0].Cybersecurity_Tools_Packet_Tracer__c),
+          (this.form.Palo_Alto =
+            response.data.records[0].Cybersecurity_Tools_Palo_Alto__c),
+          (this.form.Security_Onion =
+            response.data.records[0].Cybersecurity_Tools_Security_Onion__c),
+          (this.form.Shodan =
+            response.data.records[0].Cybersecurity_Tools_Shodan__c),
+          (this.form.SIFT =
+            response.data.records[0].Cybersecurity_Tools_SIFT__c),
+          (this.form.Snort =
+            response.data.records[0].Cybersecurity_Tools_Snort__c),
+          (this.form.Sophos =
+            response.data.records[0].Cybersecurity_Tools_Sophos__c),
+          (this.form.Splunk =
+            response.data.records[0].Cybersecurity_Tools_Splunk__c),
+          (this.form.Sumologic =
+            response.data.records[0].Cybersecurity_Tools_Sumologic__c),
+          (this.form.Suricata =
+            response.data.records[0].Cybersecurity_Tools_Suricata__c),
+          (this.form.Wireshark =
+            response.data.records[0].Cybersecurity_Tools_Wireshark__c),
+          (this.form.Malware_Detection_PC_Windows =
+            response.data.records[0].Malware_Detection_Prof_PC_Windows__c),
+          (this.form.Malware_Detection_PC_Mac =
+            response.data.records[0].Malware_Detection_Proficiency_PC_Mac__c),
+          (this.form.Malware_Detection_PC_Linux =
+            response.data.records[0].Malware_Detection_Proficiency_PC_Linux__c),
+          (this.form.Malware_Detection_Mobile_Android =
+            response.data.records[0].Malware_Detection_Prof_Mobile_Android__c),
+          (this.form.Malware_Detection_Mobile_IOS =
+            response.data.records[0].Malware_Detection_Prof_Mobile_IOS__c),
+          (this.form.Setting_up_VPNs =
+            response.data.records[0].Proficiency_in_setting_up_VPNs__c),
+          (this.form.Setting_up_secure_wired_LAN =
+            response.data.records[0].Prof_in_setting_up_secure_wired_LAN__c),
+          (this.form.Setting_up_secure_wireless_LAN =
+            response.data.records[0].Prof_in_setting_up_secure_wireless_LAN__c),
+          (this.form.Configure_and_harden_networks =
+            response.data.records[0].Prof_in_configuring_hardening_networks__c),
+          (this.form.Aplus = response.data.records[0].Certifications_Aplus__c),
+          (this.form.CCN = response.data.records[0].Certifications_CCN__c),
+          (this.form.CCSA = response.data.records[0].Certifications_CCSA__c),
+          (this.form.CEH = response.data.records[0].Certifications_CEH__c),
+          (this.form.CISA = response.data.records[0].Certifications_CISA__c),
+          (this.form.CISM = response.data.records[0].Certifications_CISM__c),
+          (this.form.CISSP = response.data.records[0].Certifications_CISSP__c),
+          (this.form.CPP = response.data.records[0].Certifications_CPP__c),
+          (this.form.CSSLP = response.data.records[0].Certifications_CSSLP__c),
+          (this.form.CSX = response.data.records[0].Certifications_CSX__c),
+          (this.form.CTTplus = response.data.records[0].Certifications_CTT__c),
+          (this.form.GCPM = response.data.records[0].Certifications_GCPM__c),
+          (this.form.GIAC = response.data.records[0].Certifications_GIAC__c),
+          (this.form.GPEN = response.data.records[0].Certifications_GPEN__c),
+          (this.form.GSLC = response.data.records[0].Certifications_GSLC__c),
+          (this.form.GXPN = response.data.records[0].Certifications_GXPN__c),
+          (this.form.MCP = response.data.records[0].Certifications_MCP__c),
+          (this.form.MTA = response.data.records[0].Certifications_MTA__c),
+          (this.form.Networkplus =
+            response.data.records[0].Certifications_Network__c),
+          (this.form.SANS = response.data.records[0].Certifications_SANS__c),
+          (this.form.Securityplus =
+            response.data.records[0].Certifications_Security__c),
+          (this.form.Six_Sigma =
+            response.data.records[0].Certifications_Six_Sigma__c),
+          (this.form.first_name = response.data.records[0].FirstName__c),
+          (this.form.last_name = response.data.records[0].LastName__c),
+          (this.form.name = response.data.records[0].Name),
+          (this.form.password = response.data.records[0].password__c),
+          (this.form.rank = response.data.records[0].GradeRank__c),
           // Current_Duty_Assignment__c: this.form.duty,
-          this.form.tac= response.data.records[0].tac__c,
-          this.form.loe= response.data.records[0].loe__c,
-          this.form.it= response.data.records[0].it__c
+          (this.form.tac = response.data.records[0].tac__c),
+          (this.form.loe = response.data.records[0].loe__c),
+          (this.form.it = response.data.records[0].it__c);
       });
     },
     postUserData() {

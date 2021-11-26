@@ -53,6 +53,7 @@
             >Select at least 1 Column</b-alert
           >
           <b-form-input
+            required
             id="filter-input"
             v-model="searchP"
             type="search"
@@ -88,6 +89,7 @@
       <b-form inline style="margin: 1%">
         <label class="mr-sm-2" for="inline-form-input-name">Name = </label>
         <b-form-input
+          required
           style="border: 0.5px solid white"
           id="inline-form-input-name"
           class="mb-2 mr-sm-2 mb-sm-0"
@@ -196,6 +198,7 @@
           >
             <b-input-group size="sm">
               <b-form-input
+                required
                 id="filter-input"
                 v-model="filter"
                 type="search"
@@ -213,12 +216,16 @@
         <span class="tableScroll">
           <b-table
             :filter="filter"
-            :filter-included-fields="filterOn"
             stickyColumn
             style="color: white"
             :items="users"
             :fields="fields"
-          ></b-table>
+          >
+            <template v-slot:cell()="data">
+              <span v-b-tooltip.hover :title=data.value>{{ data.value}}</span>
+            </template>
+          </b-table>
+          
         </span>
       </span>
     </b-card>
@@ -348,7 +355,7 @@ export default {
   computed: {
     filteredUsers() {
       return this.columnNames.filter((us) => {
-        console.log(us.text);
+        // console.log(us.text);
         return us.text.toLowerCase().match(this.searchP.toLowerCase());
       });
     },
@@ -356,6 +363,7 @@ export default {
   methods: {
     getColumns() {
       mainApi.getColumnNames().then((response) => {
+        console.log(response.data.fields)
         for (var i = 12; i < response.data.fields.length; i++) {
           if (response.data.fields[i].name != "Password__c") {
             var obj = {};
@@ -363,6 +371,7 @@ export default {
               .replaceAll("_", " ")
               .slice(0, -2);
             obj.value = response.data.fields[i].name;
+            obj.label = response.data.fields[i].label;
             this.columnNames.push(obj);
           }
         }

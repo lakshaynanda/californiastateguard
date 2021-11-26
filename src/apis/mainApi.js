@@ -113,7 +113,7 @@ export default class UserForm {
   }
 
   static getServiceMemberByName(nameSearch) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE FirstName__c = '" + nameSearch + "'")
+    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE FirstName__c = '" + nameSearch + "' LIMIT 200")
   }
 
   static getAuth(data) {
