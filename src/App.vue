@@ -8,6 +8,7 @@
   </div>
 </template>
 <script>
+import 'vue-select/dist/vue-select.css';
 export default {
   mounted() {
   },
@@ -30,7 +31,9 @@ export default {
   }
 }
 </script>
+
 <style>
+
 ::-webkit-scrollbar {
     display: none;
 }

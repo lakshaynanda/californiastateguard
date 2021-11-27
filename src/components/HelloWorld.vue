@@ -47,6 +47,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.first_name"
                 id="nested-street-1"
@@ -60,6 +61,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.last_name"
                 id="nested-street-2"
@@ -73,6 +75,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 v-model="form.name"
                 id="nested-street"
@@ -86,6 +89,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                required
                 v-if="editable"
                 type="password"
                 v-model="form.password"
@@ -105,7 +109,7 @@
                 :options="ranks"
                 id="nested-city"
               ></b-form-select>
-              <!-- <b-form-input  v-model="form.rank" id="nested-city"></b-form-input> -->
+              <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
               <p v-else>{{ form.rank }}</p>
             </b-form-group>
 
@@ -115,7 +119,7 @@
                 label-cols-sm="3"
                 label-align-sm="right"
               >
-                <b-form-input v-if="editable" v-model="form.age" id="nested-state"></b-form-input>
+                <b-form-input :required=true v-if="editable" v-model="form.age" id="nested-state"></b-form-input>
                 <p v-else>{{ form.age }}</p>
               </b-form-group> -->
 
@@ -139,7 +143,7 @@
                 label-cols-sm="3"
                 label-align-sm="right"
               >
-                <b-form-input v-if="editable" type="password" v-model="form.Current_Duty_Assignment" id="nested-street-98"></b-form-input>
+                <b-form-input :required=true v-if="editable" type="password" v-model="form.Current_Duty_Assignment" id="nested-street-98"></b-form-input>
                 <p v-else>{{ form.Current_Duty_Assignment }}</p>
               </b-form-group> -->
             <!-- </b-form-group> -->
@@ -171,6 +175,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-14"
                 v-model="form.K_of_TTPs_used_by_attackers"
@@ -189,6 +194,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-24"
                 v-model="form.A_to_do_actions_related_to_approved_LoE"
@@ -207,6 +213,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="radio-group-34"
                 v-model="form.A_to_develop_perform_QA_deliver_LoE"
@@ -225,6 +232,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer1w"
                 v-model="form.K_of_Network_Operating_Systems_"
@@ -243,6 +251,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer2w"
                 v-model="form.K_o_CA_info_tech_roles_reqs_and_org"
@@ -261,6 +270,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer3w"
                 v-model="form.K_of_server_based_applications_"
@@ -279,6 +289,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer4w"
                 v-model="form.K_of_computer_networking_protocols_"
@@ -297,6 +308,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer5w"
                 v-model="form.K_of_network_security__related_concepts"
@@ -315,6 +327,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer6w"
                 v-model="form.A_to_effectively_communicate_"
@@ -333,6 +346,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer7w"
                 v-model="form.A_to__provide_briefings_with_CMD_staff_"
@@ -351,6 +365,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="wer8w"
                 v-model="form.A_to_deploy_troubleshoot_analyse_CND_tools"
@@ -399,6 +414,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb1"
                 v-model="form.K_of__information_security_standards"
@@ -416,6 +432,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb2"
                 v-model="form.K_of_operational_cybersecurity"
@@ -433,6 +450,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb3"
                 v-model="form.E_in_management_of_IT_security_and_risk"
@@ -450,6 +468,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb4"
                 v-model="form.E_in_internal_and_external_audits_exams"
@@ -467,6 +486,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbb5"
                 v-model="form.E_in__policies_procedures_and_standards"
@@ -513,6 +533,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk1"
                 v-model="form.E_w_system_admin_or_hardening_techniques"
@@ -530,6 +551,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk2"
                 v-model="form.K_of_common_network_tools"
@@ -547,6 +569,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk3"
                 v-model="form.E_using_CND_vuln_tools_"
@@ -564,6 +587,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk4"
                 v-model="form.S_in_vulnerability_scans"
@@ -581,6 +605,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk5"
                 v-model="form.S_in_collecting_system__policy_artifacts"
@@ -598,6 +623,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk6"
                 v-model="form.K_of_CND__policies_procedures_and_regs"
@@ -615,6 +641,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk7"
                 v-model="form.E_in_TTPs_pen_test_and_Red_Team"
@@ -632,6 +659,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk9"
                 v-model="form.A_to_direct_mentor_guide"
@@ -649,6 +677,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk10"
                 v-model="form.E_in_Defense_In_Depth_"
@@ -666,6 +695,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk11"
                 v-model="form.K_of_network_protocols_"
@@ -683,6 +713,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk12"
                 v-model="form.K_of_access_control__and_application"
@@ -700,6 +731,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk13"
                 v-model="form.K_of_network_traffic_flows__TCP_IP_OSI"
@@ -717,6 +749,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk14"
                 v-model="form.E_in_use_of_network_vuln_tools"
@@ -734,6 +767,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk15"
                 v-model="form.E_in_using_protocol_analyzers"
@@ -751,6 +785,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk17"
                 v-model="form.E_in_equip_inventory_readiness_data_san"
@@ -768,6 +803,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk18"
                 v-model="form.A_to_assess__Defense_in_Depth_"
@@ -785,6 +821,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk19"
                 v-model="form.A_to_review__network_topologies_"
@@ -802,6 +839,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk20"
                 v-model="form.A_to_perform__network_mapping"
@@ -819,6 +857,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk21"
                 v-model="form.E_in_providing_Tier_II_analysis"
@@ -836,6 +875,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk22"
                 v-model="form.A_to_review_detected_malicious_activity_"
@@ -853,6 +893,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cbsk23"
                 v-model="form.Knowledge_of_VPN_security"
@@ -899,6 +940,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt1"
                 v-model="form.K0004"
@@ -916,6 +958,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt2"
                 v-model="form.K0003"
@@ -933,6 +976,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt3"
                 v-model="form.K0006"
@@ -950,6 +994,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt4"
                 v-model="form.K0015"
@@ -967,6 +1012,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt5"
                 v-model="form.K0018"
@@ -984,6 +1030,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt6"
                 v-model="form.K0019"
@@ -1001,6 +1048,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt7"
                 v-model="form.K0026"
@@ -1018,6 +1066,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt9"
                 v-model="form.K0040"
@@ -1035,6 +1084,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt10"
                 v-model="form.K0041"
@@ -1052,6 +1102,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt11"
                 v-model="form.K0042"
@@ -1069,6 +1120,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt12"
                 v-model="form.K0044"
@@ -1086,6 +1138,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt13"
                 v-model="form.K0046"
@@ -1103,6 +1156,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt14"
                 v-model="form.K0049"
@@ -1120,6 +1174,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt15"
                 v-model="form.K0059"
@@ -1137,6 +1192,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt17"
                 v-model="form.K0070"
@@ -1154,6 +1210,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt18"
                 v-model="form.K0093"
@@ -1171,6 +1228,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt19"
                 v-model="form.K0107"
@@ -1188,6 +1246,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt20"
                 v-model="form.K0116"
@@ -1205,6 +1264,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt21"
                 v-model="form.K0142"
@@ -1222,6 +1282,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt22"
                 v-model="form.K0157"
@@ -1239,6 +1300,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt23"
                 v-model="form.K0160"
@@ -1256,6 +1318,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt24"
                 v-model="form.K0161"
@@ -1273,6 +1336,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt25"
                 v-model="form.K0162"
@@ -1290,6 +1354,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt26"
                 v-model="form.K0177"
@@ -1307,6 +1372,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt27"
                 v-model="form.K0180"
@@ -1324,6 +1390,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt28"
                 v-model="form.K0190"
@@ -1341,6 +1408,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt29"
                 v-model="form.K0191"
@@ -1358,6 +1426,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt30"
                 v-model="form.K0192"
@@ -1375,6 +1444,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt31"
                 v-model="form.K0203"
@@ -1392,6 +1462,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt32"
                 v-model="form.K0259"
@@ -1409,6 +1480,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt33"
                 v-model="form.K0287"
@@ -1426,6 +1498,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt34"
                 v-model="form.K0322"
@@ -1443,6 +1516,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt35"
                 v-model="form.K0624"
@@ -1460,6 +1534,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt36"
                 v-model="form.S0020"
@@ -1477,6 +1552,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt37"
                 v-model="form.S0169"
@@ -1494,6 +1570,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt38"
                 v-model="form.S0365"
@@ -1511,6 +1588,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt39"
                 v-model="form.A0066"
@@ -1528,6 +1606,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt40"
                 v-model="form.A0121"
@@ -1545,6 +1624,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="zt41"
                 v-model="form.A0123"
@@ -1591,6 +1671,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct1"
                 v-model="form.Malware_Detection_PC_Windows"
@@ -1608,6 +1689,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct2"
                 v-model="form.Malware_Detection_PC_Mac"
@@ -1625,6 +1707,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct3"
                 v-model="form.Malware_Detection_PC_Linux"
@@ -1642,6 +1725,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct4"
                 v-model="form.Malware_Detection_Mobile_Android"
@@ -1659,6 +1743,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct5"
                 v-model="form.Malware_Detection_Mobile_IOS"
@@ -1676,6 +1761,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct6"
                 v-model="form.Setting_up_VPNs"
@@ -1693,6 +1779,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct7"
                 v-model="form.Setting_up_secure_wired_LAN"
@@ -1710,6 +1797,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct9"
                 v-model="form.Setting_up_secure_wireless_LAN"
@@ -1727,6 +1815,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct10"
                 v-model="form.Configure_and_harden_networks"
@@ -1743,7 +1832,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct11"
               v-model="form.Aircrack_ng"
@@ -1760,7 +1849,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct12"
               v-model="form.Autopsy"
@@ -1777,7 +1866,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct13"
               v-model="form.Cisco"
@@ -1794,7 +1883,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct14"
               v-model="form.Darktrace"
@@ -1811,7 +1900,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct15"
               v-model="form.Elasticsearch"
@@ -1828,7 +1917,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct17"
               v-model="form.EnCase"
@@ -1845,7 +1934,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct18"
               v-model="form.Eyewitness"
@@ -1862,7 +1951,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct19"
               v-model="form.Forensic_Tool_Kit"
@@ -1879,7 +1968,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct20"
               v-model="form.Kali_Linux"
@@ -1896,7 +1985,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct21"
               v-model="form.Kibana"
@@ -1913,7 +2002,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct22"
               v-model="form.Logstash"
@@ -1930,7 +2019,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct23"
               v-model="form.Logzilla"
@@ -1947,7 +2036,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct24"
               v-model="form.Metasploit"
@@ -1964,7 +2053,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct25"
               v-model="form.Nessus"
@@ -1981,7 +2070,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct26"
               v-model="form.NetSim"
@@ -1998,7 +2087,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct27"
               v-model="form.Nmap"
@@ -2015,7 +2104,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct28"
               v-model="form.Octopussy"
@@ -2032,7 +2121,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct29"
               v-model="form.Packet_Tracer"
@@ -2049,7 +2138,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct30"
               v-model="form.Palo_Alto"
@@ -2066,7 +2155,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct31"
               v-model="form.Security_Onion"
@@ -2083,7 +2172,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct32"
               v-model="form.Shodan"
@@ -2100,7 +2189,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct33"
               v-model="form.SIFT"
@@ -2117,7 +2206,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct34"
               v-model="form.Snort"
@@ -2134,7 +2223,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct35"
               v-model="form.Sophos"
@@ -2151,7 +2240,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct36"
               v-model="form.Splunk"
@@ -2168,7 +2257,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct37"
               v-model="form.Sumologic"
@@ -2185,7 +2274,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct38"
               v-model="form.Suricata"
@@ -2202,7 +2291,7 @@
             label-cols-sm="3"
             label-align-sm="right"
           >
-            <b-form-radio-group
+            <b-form-radio-group :required= true
               v-if="editable2"
               id="ct39"
               v-model="form.Wireshark"
@@ -2249,6 +2338,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct11"
                 v-model="form.Aircrack_ng"
@@ -2266,6 +2356,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct12"
                 v-model="form.Autopsy"
@@ -2283,6 +2374,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct13"
                 v-model="form.Cisco"
@@ -2300,6 +2392,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct14"
                 v-model="form.Darktrace"
@@ -2317,6 +2410,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct15"
                 v-model="form.Elasticsearch"
@@ -2334,6 +2428,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct17"
                 v-model="form.EnCase"
@@ -2351,6 +2446,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct18"
                 v-model="form.Eyewitness"
@@ -2368,6 +2464,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct19"
                 v-model="form.Forensic_Tool_Kit"
@@ -2385,6 +2482,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct20"
                 v-model="form.Kali_Linux"
@@ -2402,6 +2500,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct21"
                 v-model="form.Kibana"
@@ -2419,6 +2518,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct22"
                 v-model="form.Logstash"
@@ -2436,6 +2536,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct23"
                 v-model="form.Logzilla"
@@ -2453,6 +2554,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct24"
                 v-model="form.Metasploit"
@@ -2470,6 +2572,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct25"
                 v-model="form.Nessus"
@@ -2487,6 +2590,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct26"
                 v-model="form.NetSim"
@@ -2504,6 +2608,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct27"
                 v-model="form.Nmap"
@@ -2521,6 +2626,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct28"
                 v-model="form.Octopussy"
@@ -2538,6 +2644,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct29"
                 v-model="form.Packet_Tracer"
@@ -2555,6 +2662,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct30"
                 v-model="form.Palo_Alto"
@@ -2572,6 +2680,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct31"
                 v-model="form.Security_Onion"
@@ -2589,6 +2698,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct32"
                 v-model="form.Shodan"
@@ -2606,6 +2716,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct33"
                 v-model="form.SIFT"
@@ -2623,6 +2734,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct34"
                 v-model="form.Snort"
@@ -2640,6 +2752,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct35"
                 v-model="form.Sophos"
@@ -2657,6 +2770,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct36"
                 v-model="form.Splunk"
@@ -2674,6 +2788,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct37"
                 v-model="form.Sumologic"
@@ -2691,6 +2806,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct38"
                 v-model="form.Suricata"
@@ -2708,6 +2824,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="ct39"
                 v-model="form.Wireshark"
@@ -2754,6 +2871,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et1"
                 v-model="form.Ciscoone"
@@ -2771,6 +2889,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et2"
                 v-model="form.CrowdStrike"
@@ -2788,6 +2907,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et3"
                 v-model="form.FireEye"
@@ -2805,6 +2925,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et4"
                 v-model="form.Juniper"
@@ -2822,6 +2943,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et5"
                 v-model="form.Sophosone"
@@ -2839,6 +2961,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="et6"
                 v-model="form.Symantec"
@@ -2885,6 +3008,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc1"
                 v-model="form.C"
@@ -2902,6 +3026,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc2"
                 v-model="form.Cplusplus"
@@ -2919,6 +3044,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc3"
                 v-model="form.Java"
@@ -2936,6 +3062,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc4"
                 v-model="form.Javascript"
@@ -2953,6 +3080,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc5"
                 v-model="form.php"
@@ -2970,6 +3098,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc6"
                 v-model="form.PowerShell"
@@ -2987,6 +3116,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc7"
                 v-model="form.Python"
@@ -3004,6 +3134,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="stc8"
                 v-model="form.Bash"
@@ -3050,6 +3181,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="CC1"
                 v-model="form.Aplus"
@@ -3067,6 +3199,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc2"
                 v-model="form.CCN"
@@ -3084,6 +3217,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc3"
                 v-model="form.CCSA"
@@ -3101,6 +3235,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc4"
                 v-model="form.CEH"
@@ -3118,6 +3253,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc5"
                 v-model="form.CISA"
@@ -3135,6 +3271,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc6"
                 v-model="form.CISM"
@@ -3152,6 +3289,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc7"
                 v-model="form.CISSP"
@@ -3169,6 +3307,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc8"
                 v-model="form.CPP"
@@ -3186,6 +3325,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc9"
                 v-model="form.CSSLP"
@@ -3203,6 +3343,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc10"
                 v-model="form.CSX"
@@ -3220,6 +3361,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc11"
                 v-model="form.CTTplus"
@@ -3237,6 +3379,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc12"
                 v-model="form.GCPM"
@@ -3254,6 +3397,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc13"
                 v-model="form.GIAC"
@@ -3271,6 +3415,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc14"
                 v-model="form.GPEN"
@@ -3288,6 +3433,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc15"
                 v-model="form.GSLC"
@@ -3305,6 +3451,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc16"
                 v-model="form.GXPN"
@@ -3322,6 +3469,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc17"
                 v-model="form.MCP"
@@ -3339,6 +3487,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc18"
                 v-model="form.MTA"
@@ -3356,6 +3505,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc19"
                 v-model="form.Networkplus"
@@ -3373,6 +3523,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc20"
                 v-model="form.SANS"
@@ -3390,6 +3541,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc21"
                 v-model="form.Securityplus"
@@ -3407,6 +3559,7 @@
               label-align-sm="right"
             >
               <b-form-radio-group
+                required
                 v-if="editable2"
                 id="cc22"
                 v-model="form.Six_Sigma"
