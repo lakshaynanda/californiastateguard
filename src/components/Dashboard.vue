@@ -132,17 +132,28 @@
         <label class="mr-sm-2" for="inline-form-custom-select-pref"
           >Skill =
         </label>
+        <!-- <v-select label="label" :value="skillChosen.label" :options="dropSelect" v-model="skillChosen.label"></v-select> -->
         <b-form-select
           style="color: white"
           id="inline-form-custom-select-pref"
           class="mb-2 mr-sm-2 mb-sm-0"
-          :options="['loe__c', 'tac__c', 'it__c']"
+          :options="dropSelect"
           v-model="skillChosen"
           :value="null"
         ></b-form-select>
         =
         <!-- <v-select v-model="skillChosen" :options="['loe__c', 'tac__c', 'it__c']"></v-select> = -->
         <b-form-select
+          v-if="skillChosen.includes(`Certifications`)"
+          style="color: white"
+          id="inline-form-custom-select-pref"
+          class="mb-2 mr-sm-2 mb-sm-0"
+          :options="['NA', 'Completed', 'InProgress', 'Planned']"
+          v-model="skillVal"
+          :value="null"
+        ></b-form-select>
+        <b-form-select
+          v-else
           style="color: white"
           id="inline-form-custom-select-pref"
           class="mb-2 mr-sm-2 mb-sm-0"
@@ -246,6 +257,7 @@ export default {
   },
   data() {
     return {
+      dropSelect: [],
       selected: ["FirstName__c", "LastName__c", "GradeRank__c"],
       alertT: false,
       searchP: "",
@@ -365,14 +377,23 @@ export default {
       mainApi.getColumnNames().then((response) => {
         console.log(response.data.fields)
         for (var i = 12; i < response.data.fields.length; i++) {
-          if (response.data.fields[i].name != "Password__c") {
+          if (response.data.fields[i].name != "Password__c" && response.data.fields[i].name != "Age__c" && response.data.fields[i].name != "IT__c" && response.data.fields[i].name != "LoE__c" && response.data.fields[i].name != "TAC__c") {
             var obj = {};
-            obj.text = response.data.fields[i].name
+            obj.text = response.data.fields[i].inlineHelpText != null ? response.data.fields[i].inlineHelpText : response.data.fields[i].label
               .replaceAll("_", " ")
-              .slice(0, -2);
+              // .slice(0, -2);
             obj.value = response.data.fields[i].name;
             obj.label = response.data.fields[i].label;
             this.columnNames.push(obj);
+            if(response.data.fields[i].name != "FirstName__c" && response.data.fields[i].name != "LastName__c" && response.data.fields[i].name != "MemberId__c" && response.data.fields[i].name != "GradeRank__c" && response.data.fields[i].name != "isAdmin__c") {
+              var obj1 = {};
+              obj1.text = response.data.fields[i].inlineHelpText != null ? response.data.fields[i].inlineHelpText : response.data.fields[i].label
+                .replaceAll("_", " ")
+                // .slice(0, -2);
+              obj1.value = response.data.fields[i].name;
+              obj1.label = response.data.fields[i].label;
+              this.dropSelect.push(obj1)
+            }
           }
         }
       });
