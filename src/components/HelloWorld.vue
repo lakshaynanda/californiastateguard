@@ -61,7 +61,6 @@
               label-align-sm="right"
             >
               <b-form-input
-                required
                 v-if="editable"
                 v-model="form.last_name"
                 id="nested-street-2"
