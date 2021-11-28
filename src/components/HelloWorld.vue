@@ -3015,6 +3015,24 @@
             <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
         <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
             <b-form-group
+              label="Bash:"
+              label-for="nested-state"
+              v-slot="{ sp8 }"
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-radio-group
+                required
+                v-if="editable2"
+                id="stc8"
+                v-model="form.Bash"
+                :options="options1"
+                :aria-describedby="sp8"
+                name="stc8"
+              ></b-form-radio-group>
+              <p v-else>{{ form.Bash }}</p>
+            </b-form-group>
+            <b-form-group
               label="C:"
               label-for="nested-street"
               label-cols-sm="3"
@@ -3139,24 +3157,6 @@
                 name="stc7"
               ></b-form-radio-group>
               <p v-else>{{ form.Python }}</p>
-            </b-form-group>
-            <b-form-group
-              label="Bash:"
-              label-for="nested-state"
-              v-slot="{ sp8 }"
-              label-cols-sm="3"
-              label-align-sm="right"
-            >
-              <b-form-radio-group
-                required
-                v-if="editable2"
-                id="stc8"
-                v-model="form.Bash"
-                :options="options1"
-                :aria-describedby="sp8"
-                name="stc8"
-              ></b-form-radio-group>
-              <p v-else>{{ form.Bash }}</p>
             </b-form-group>
           </b-card-body>
         </b-collapse>
@@ -3784,28 +3784,28 @@ export default {
         Setting_up_secure_wired_LAN: "",
         Setting_up_secure_wireless_LAN: "",
         Configure_and_harden_networks: "",
-        Aplus: "",
-        CCN: "",
-        CCSA: "",
-        CEH: "",
-        CISA: "",
-        CISM: "",
-        CISSP: "",
-        CPP: "",
-        CSSLP: "",
-        CSX: "",
-        CTTplus: "",
-        GCPM: "",
-        GIAC: "",
-        GPEN: "",
-        GSLC: "",
-        GXPN: "",
-        MCP: "",
-        MTA: "",
-        Networkplus: "",
-        SANS: "",
-        Securityplus: "",
-        Six_Sigma: "",
+        Aplus: "NA",
+        CCN: "NA",
+        CCSA: "NA",
+        CEH: "NA",
+        CISA: "NA",
+        CISM: "NA",
+        CISSP: "NA",
+        CPP: "NA",
+        CSSLP: "NA",
+        CSX: "NA",
+        CTTplus: "NA",
+        GCPM: "NA",
+        GIAC: "NA",
+        GPEN: "NA",
+        GSLC: "NA",
+        GXPN: "NA",
+        MCP: "NA",
+        MTA: "NA",
+        Networkplus: "NA",
+        SANS: "NA",
+        Securityplus: "NA",
+        Six_Sigma: "NA",
         first_name: "",
         last_name: "",
         name: "",
