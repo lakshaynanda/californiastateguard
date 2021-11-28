@@ -33,7 +33,7 @@ export default class UserForm {
       skillEquation = skill + " ='" + skillVal + "'"
     }
     if (rankVal != "" || rankVal != null) {
-      rankEquation = "GradeRank__c ='" + rankVal + "'"
+      rankEquation = "Staff_Designation__c ='" + rankVal + "'"
     } else {
       rankEquation = ""
     }
