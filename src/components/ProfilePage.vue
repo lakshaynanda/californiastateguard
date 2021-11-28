@@ -2982,6 +2982,24 @@
             <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
         <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
             <b-form-group
+              label="Bash:"
+              label-for="nested-state"
+              v-slot="{ sp8 }"
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-radio-group
+                required
+                v-if="editable2"
+                id="stc8"
+                v-model="form.Bash"
+                :options="options1"
+                :aria-describedby="sp8"
+                name="stc8"
+              ></b-form-radio-group>
+              <p v-else>{{ form.Bash }}</p>
+            </b-form-group>
+            <b-form-group
               label="C:"
               label-for="nested-street"
               label-cols-sm="3"
@@ -3106,24 +3124,6 @@
                 name="stc7"
               ></b-form-radio-group>
               <p v-else>{{ form.Python }}</p>
-            </b-form-group>
-            <b-form-group
-              label="Bash:"
-              label-for="nested-state"
-              v-slot="{ sp8 }"
-              label-cols-sm="3"
-              label-align-sm="right"
-            >
-              <b-form-radio-group
-                required
-                v-if="editable2"
-                id="stc8"
-                v-model="form.Bash"
-                :options="options1"
-                :aria-describedby="sp8"
-                name="stc8"
-              ></b-form-radio-group>
-              <p v-else>{{ form.Bash }}</p>
             </b-form-group>
           </b-card-body>
         </b-collapse>
@@ -3563,13 +3563,6 @@
         <!-- </b-form-group> -->
       </b-card>
       <br />
-
-      <b-button
-        variant="outline-primary"
-        style="background-color: #17c1fb; color: white"
-        @click="postUserData"
-        >Submit</b-button
-      >
       <!-- <b-button variant="outline-primary" @click="getUserData">Get Details</b-button> -->
       <!-- <b-card v-if="usersPresent" class="mt-3" header="Form Data Result">
         <pre class="m-0">{{ users }}</pre>
@@ -3823,6 +3816,7 @@ export default {
       mainApi.getServiceMemberInd(this.uname, this.upass).then((response) => {
         // (this.form.age = response.data.records[0].Age__c),
         // console.log(response)
+        this.form.staff = response.data.records[0].Staff_Designation__c,
         (this.form.Current_Duty_Assignment =
           response.data.records[0].Current_Duty_Assignment__c),
           (this.form.K_of_TTPs_used_by_attackers =

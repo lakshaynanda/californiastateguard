@@ -573,7 +573,12 @@ header.card-header {
 .custom-control-label::before,
 .custom-file-label,
 .custom-select {
+  max-width: 12%;
   background-color: #2c3e50;
+  width: 12% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .tableScroll {
   overflow: auto;

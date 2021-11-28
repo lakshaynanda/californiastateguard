@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve --https true",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "sh deploy.sh"
+    "deploy": "sh deploy.sh",
+    "postinstall": "npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.22",
@@ -15,9 +17,11 @@
     "bootstrap-vue": "^2.21.2",
     "complexity-report": "^2.0.0-alpha",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "plato": "^1.7.0",
     "qs": "^6.10.1",
     "sass-loader": "^12.1.0",
+    "serve-static": "^1.14.1",
     "vue": "^2.6.11",
     "vue-json-csv": "^1.2.12",
     "vue-router": "^3.2.0",

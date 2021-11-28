@@ -61,7 +61,6 @@
               label-align-sm="right"
             >
               <b-form-input
-                required
                 v-if="editable"
                 v-model="form.last_name"
                 id="nested-street-2"
@@ -98,17 +97,33 @@
               <p v-else>{{ form.password }}</p>
             </b-form-group>
             <b-form-group
-              label="Rank:"
+              label="Staff Designation:"
               label-for="nested-city"
               label-cols-sm="3"
               label-align-sm="right"
             >
               <b-form-select
                 v-if="editable"
-                v-model="form.rank"
+                v-model="form.staff"
                 :options="ranks"
                 id="nested-city"
               ></b-form-select>
+              <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
+              <p v-else>{{ form.staff }}</p>
+            </b-form-group>
+            <b-form-group
+              label="Rank:"
+              label-for="nested-city"
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-input
+                required
+                v-if="editable"
+                type="text"
+                v-model="form.rank"
+                id="nested-street-4"
+              ></b-form-input>
               <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
               <p v-else>{{ form.rank }}</p>
             </b-form-group>
@@ -129,12 +144,11 @@
               label-cols-sm="3"
               label-align-sm="right"
             >
-              <b-form-select
+              <b-form-input
                 v-if="editable"
-                :options="duties"
                 v-model="form.Current_Duty_Assignment"
                 id="nested-country"
-              ></b-form-select>
+              ></b-form-input>
               <p v-else>{{ form.Current_Duty_Assignment }}</p>
             </b-form-group>
             <!-- <b-form-group
@@ -3001,6 +3015,24 @@
             <!-- <b-icon v-if="!editable2" style="float:right; margin: 9%" class="button" icon="pencil-square" @click="editable2 = true"></b-icon>
         <b-icon v-if="editable2" style="float:right; margin: 9%" class="button" icon="check2" @click="editable2 = false"></b-icon> -->
             <b-form-group
+              label="Bash:"
+              label-for="nested-state"
+              v-slot="{ sp8 }"
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-radio-group
+                required
+                v-if="editable2"
+                id="stc8"
+                v-model="form.Bash"
+                :options="options1"
+                :aria-describedby="sp8"
+                name="stc8"
+              ></b-form-radio-group>
+              <p v-else>{{ form.Bash }}</p>
+            </b-form-group>
+            <b-form-group
               label="C:"
               label-for="nested-street"
               label-cols-sm="3"
@@ -3125,24 +3157,6 @@
                 name="stc7"
               ></b-form-radio-group>
               <p v-else>{{ form.Python }}</p>
-            </b-form-group>
-            <b-form-group
-              label="Bash:"
-              label-for="nested-state"
-              v-slot="{ sp8 }"
-              label-cols-sm="3"
-              label-align-sm="right"
-            >
-              <b-form-radio-group
-                required
-                v-if="editable2"
-                id="stc8"
-                v-model="form.Bash"
-                :options="options1"
-                :aria-describedby="sp8"
-                name="stc8"
-              ></b-form-radio-group>
-              <p v-else>{{ form.Bash }}</p>
             </b-form-group>
           </b-card-body>
         </b-collapse>
@@ -3616,7 +3630,7 @@ export default {
       ranks: [
         { text: "Service Member", value: "Service Member" },
         { text: "Command Staff", value: "Command Staff" },
-        { text: "Training Team", value: "Training Team" },
+        { text: "Training Team", value: "Training Team" }
       ],
       duties: [
         { text: "Active", value: "Active" },
@@ -3680,6 +3694,7 @@ export default {
         E_in_internal_and_external_audits_exams: "",
         E_in__policies_procedures_and_standards: "",
         age: "",
+        staff: "",
         K0004: "",
         K0003: "",
         K0006: "",
@@ -3769,28 +3784,28 @@ export default {
         Setting_up_secure_wired_LAN: "",
         Setting_up_secure_wireless_LAN: "",
         Configure_and_harden_networks: "",
-        Aplus: "",
-        CCN: "",
-        CCSA: "",
-        CEH: "",
-        CISA: "",
-        CISM: "",
-        CISSP: "",
-        CPP: "",
-        CSSLP: "",
-        CSX: "",
-        CTTplus: "",
-        GCPM: "",
-        GIAC: "",
-        GPEN: "",
-        GSLC: "",
-        GXPN: "",
-        MCP: "",
-        MTA: "",
-        Networkplus: "",
-        SANS: "",
-        Securityplus: "",
-        Six_Sigma: "",
+        Aplus: "NA",
+        CCN: "NA",
+        CCSA: "NA",
+        CEH: "NA",
+        CISA: "NA",
+        CISM: "NA",
+        CISSP: "NA",
+        CPP: "NA",
+        CSSLP: "NA",
+        CSX: "NA",
+        CTTplus: "NA",
+        GCPM: "NA",
+        GIAC: "NA",
+        GPEN: "NA",
+        GSLC: "NA",
+        GXPN: "NA",
+        MCP: "NA",
+        MTA: "NA",
+        Networkplus: "NA",
+        SANS: "NA",
+        Securityplus: "NA",
+        Six_Sigma: "NA",
         first_name: "",
         last_name: "",
         name: "",
@@ -3840,8 +3855,9 @@ export default {
       });
     },
     postUserData() {
-      if (this.form.rank == "Service Member") {
+      if (this.form.staff == "Service Member") {
         const data = {
+          Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,
           A_to_do_actions_related_to_approved_LoE__c:
@@ -4034,11 +4050,11 @@ export default {
           lastName__c: this.form.last_name,
           name: this.form.name,
           password__c: this.form.password,
-          GradeRank__c: this.form.rank,
+          GradeRank__c: this.form.rank
           // Current_Duty_Assignment__c: this.form.duty,
-          tac__c: this.form.tac,
-          loe__c: this.form.loe,
-          it__c: this.form.it,
+          // tac__c: this.form.tac,
+          // loe__c: this.form.loe,
+          // it__c: this.form.it,
         };
         mainApi.postServiceMember(data).then((response) => {
           console.log(response);
@@ -4046,6 +4062,7 @@ export default {
         });
       } else {
         const data = {
+          Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,
           A_to_do_actions_related_to_approved_LoE__c:
@@ -4240,9 +4257,9 @@ export default {
           password__c: this.form.password,
           GradeRank__c: this.form.rank,
           // Current_Duty_Assignment__c: this.form.duty,
-          tac__c: this.form.tac,
-          loe__c: this.form.loe,
-          it__c: this.form.it,
+          // tac__c: this.form.tac,
+          // loe__c: this.form.loe,
+          // it__c: this.form.it,
           isAdmin__c: true,
         };
         mainApi.postServiceMember(data).then((response) => {
