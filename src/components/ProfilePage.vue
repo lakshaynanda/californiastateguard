@@ -3563,13 +3563,6 @@
         <!-- </b-form-group> -->
       </b-card>
       <br />
-
-      <b-button
-        variant="outline-primary"
-        style="background-color: #17c1fb; color: white"
-        @click="postUserData"
-        >Submit</b-button
-      >
       <!-- <b-button variant="outline-primary" @click="getUserData">Get Details</b-button> -->
       <!-- <b-card v-if="usersPresent" class="mt-3" header="Form Data Result">
         <pre class="m-0">{{ users }}</pre>
