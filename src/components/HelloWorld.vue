@@ -3855,7 +3855,7 @@ export default {
       });
     },
     postUserData() {
-      if (this.form.rank == "Service Member") {
+      if (this.form.staff == "Service Member") {
         const data = {
           Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
