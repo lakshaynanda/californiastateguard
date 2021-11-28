@@ -93,15 +93,15 @@ export default class UserForm {
   }
 
   static getCountsService() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Service Member'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Service Member'")
   }
 
   static getCountsCommand() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Command Staff'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Command Staff'")
   }
 
   static getCountsTraining() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE GradeRank__c = 'Training Team'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Training Team'")
   }
 
   static getRankList(rankVal) {
