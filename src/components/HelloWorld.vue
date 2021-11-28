@@ -97,17 +97,33 @@
               <p v-else>{{ form.password }}</p>
             </b-form-group>
             <b-form-group
-              label="Rank:"
+              label="Staff Designation:"
               label-for="nested-city"
               label-cols-sm="3"
               label-align-sm="right"
             >
               <b-form-select
                 v-if="editable"
-                v-model="form.rank"
+                v-model="form.staff"
                 :options="ranks"
                 id="nested-city"
               ></b-form-select>
+              <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
+              <p v-else>{{ form.staff }}</p>
+            </b-form-group>
+            <b-form-group
+              label="Rank:"
+              label-for="nested-city"
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-input
+                required
+                v-if="editable"
+                type="text"
+                v-model="form.rank"
+                id="nested-street-4"
+              ></b-form-input>
               <!-- <b-form-input :required=true  v-model="form.rank" id="nested-city"></b-form-input> -->
               <p v-else>{{ form.rank }}</p>
             </b-form-group>
@@ -128,12 +144,11 @@
               label-cols-sm="3"
               label-align-sm="right"
             >
-              <b-form-select
+              <b-form-input
                 v-if="editable"
-                :options="duties"
                 v-model="form.Current_Duty_Assignment"
                 id="nested-country"
-              ></b-form-select>
+              ></b-form-input>
               <p v-else>{{ form.Current_Duty_Assignment }}</p>
             </b-form-group>
             <!-- <b-form-group
@@ -3615,7 +3630,7 @@ export default {
       ranks: [
         { text: "Service Member", value: "Service Member" },
         { text: "Command Staff", value: "Command Staff" },
-        { text: "Training Team", value: "Training Team" },
+        { text: "Training Team", value: "Training Team" }
       ],
       duties: [
         { text: "Active", value: "Active" },
@@ -3679,6 +3694,7 @@ export default {
         E_in_internal_and_external_audits_exams: "",
         E_in__policies_procedures_and_standards: "",
         age: "",
+        staff: "",
         K0004: "",
         K0003: "",
         K0006: "",
@@ -3841,6 +3857,7 @@ export default {
     postUserData() {
       if (this.form.rank == "Service Member") {
         const data = {
+          Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,
           A_to_do_actions_related_to_approved_LoE__c:
@@ -4033,7 +4050,7 @@ export default {
           lastName__c: this.form.last_name,
           name: this.form.name,
           password__c: this.form.password,
-          GradeRank__c: this.form.rank,
+          GradeRank__c: this.form.rank
           // Current_Duty_Assignment__c: this.form.duty,
           // tac__c: this.form.tac,
           // loe__c: this.form.loe,
@@ -4045,6 +4062,7 @@ export default {
         });
       } else {
         const data = {
+          Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,
           A_to_do_actions_related_to_approved_LoE__c:

@@ -3823,6 +3823,7 @@ export default {
       mainApi.getServiceMemberInd(this.uname, this.upass).then((response) => {
         // (this.form.age = response.data.records[0].Age__c),
         // console.log(response)
+        this.form.staff = response.data.records[0].Staff_Designation__c,
         (this.form.Current_Duty_Assignment =
           response.data.records[0].Current_Duty_Assignment__c),
           (this.form.K_of_TTPs_used_by_attackers =
