@@ -74,6 +74,7 @@
               label-align-sm="right"
             >
               <b-form-input
+                type="email"
                 required
                 v-if="editable"
                 v-model="form.name"
@@ -3583,17 +3584,28 @@
               ></b-form-radio-group>
               <p v-else>{{ form.Six_Sigma }}</p>
             </b-form-group>
+            <!--ADD QUESTION HERE-->
+            <!-- replicate the commented portion as many times as you want to add a question and make necessary changes-->
+            <!-- <b-form-group
+              label="var" //Add your Exact Question Wordings by replacing var
+              label-for="nested-state"
+              v-slot="{ varname }" //change 'varname' to anything you like but it should be something unique eg. question120
+              label-cols-sm="3"
+              label-align-sm="right"
+            >
+              <b-form-radio-group
+                required
+                v-if="editable2"
+                id="dummy" //change dummy to question number eg: q120
+                v-model="form.Networkplus" //go down to data() section find an object form add a variable for the question eg. e120 and replace form.Networkplus with form.e120
+                :options="options"
+                :aria-describedby=" varname " //keep this exactly same as the v-slot you specified above
+                name="dummy" //change dummy to question number eg: q120
+              ></b-form-radio-group>
+              <p v-else>{{ form.Networkplus }}</p> //use the same variable from v-model and replace it here
+            </b-form-group> -->
           </b-card-body>
         </b-collapse>
-        <!-- <b-form-group
-          label-cols-lg="3"
-          label="Skills Level"
-          label-size="lg"
-          label-class="font-weight-bold pt-0"
-          class="mb-0"
-        > -->
-
-        <!-- </b-form-group> -->
       </b-card>
       <br />
 
@@ -3603,13 +3615,6 @@
         @click="postUserData"
         >Submit</b-button
       >
-      <!-- <b-button variant="outline-primary" @click="getUserData">Get Details</b-button> -->
-      <!-- <b-card v-if="usersPresent" class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ users }}</pre>
-      </b-card>
-      <b-card class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ form }}</pre>
-      </b-card> -->
     </div>
   </div>
 </template>
@@ -3618,10 +3623,10 @@
 import mainApi from "../apis/mainApi";
 import qs from "qs";
 import axios from "axios";
-// import authApi from '../apis/auth'
 export default {
   data() {
     return {
+      
       editable: true,
       submitted: false,
       usersPresent: false,
@@ -3655,6 +3660,7 @@ export default {
         { text: "Expert", value: "4" },
       ],
       form: {
+        //declare variable here and set it as empty string eg. newquestion = ''
         Current_Duty_Assignment: "",
         K_of_TTPs_used_by_attackers: "",
         A_to_do_actions_related_to_approved_LoE: "",
@@ -3857,6 +3863,7 @@ export default {
     postUserData() {
       if (this.form.staff == "Service Member") {
         const data = {
+          //once you have create a new column inside salesforce add its column name here and set value of the question variable from top to it, refer to eg: newcolumn__c : this.form.q120
           Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,
@@ -4062,6 +4069,7 @@ export default {
         });
       } else {
         const data = {
+          //once you have create a new column inside salesforce add its column name here and set value of the question variable from top to it, refer to eg: newcolumn__c : this.form.q120
           Staff_Designation__c: this.form.staff,
           Current_Duty_Assignment__c: this.form.Current_Duty_Assignment,
           K_of_TTPs_used_by_attackers__c: this.form.K_of_TTPs_used_by_attackers,

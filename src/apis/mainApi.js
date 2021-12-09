@@ -8,10 +8,10 @@ export default class UserForm {
     }
     cols = cols.slice(0, -1)
     // return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c')
-    return http.get('data/v52.0/query?q=SELECT ' + cols + ' From ServiceMember__c')
+    return http.get('data/v52.0/query?q=SELECT ' + cols + ' From ServiceMember__c WHERE isActive__c = true')
   }
   static getDefaultData() {
-    return http.get('data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c From ServiceMember__c')
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c From ServiceMember__c WHERE isActive__c = true")
   }
 
   static getColumnNames() {
@@ -19,11 +19,11 @@ export default class UserForm {
   }
 
   static getActive() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Active'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Active' AND isActive__c = true")
   }
 
   static getInactive() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Inactive'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Current_Duty_Assignment__c = 'Inactive' AND isActive__c = true")
   }
   static getFilteredData(skill, skillVal, rankVal, con2) {
     var skillEquation = ""
@@ -45,43 +45,11 @@ export default class UserForm {
       skillEquation = skill + " ='" + skillVal + "'"
       rankEquation = ""
     }
-    // if (firstname != '' || firstname != null) {
-    //   nameEquation = "FirstName__c ='" + firstname +"'"
-    // } else {
-    //   nameEquation = ''
-    // }
+    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL)  From ServiceMember__c WHERE " + rankEquation + skillEquation + " AND isActive__c = true LIMIT 200");
+  }
 
-    // if ((firstname != '' || firstname != null) && (rankVal != '' || rankVal != null)) {
-    //   nameEquation += " " + con1 + " "
-    // } else {
-    //   nameEquation = ''
-    // }
-    // if(skillVal != null) {
-    //   skillEquation = skill +" ='"+ skillVal +"'" 
-    // }
-    // if(rankVal != null) {
-    //   rankEquation = "GradeRank__c ='"+ rankVal +"'"
-    // } else {
-    //   rankEquation = ''
-    // }
-    // if ((rankVal != null) && (skillVal != null)) {
-    //   rankEquation += " " + con2 + " "
-    // } else {
-    //   rankEquation = ''
-    // }
-    // console.log(firstname + "Hello")
-    // if (firstname != '') {
-    //   nameEquation = "FirstName__c ='" + firstname +"'"
-    // } else {
-    //   nameEquation = ''
-    // }
-
-    // if ((firstname != '') && (rankVal != null)) {
-    //   nameEquation += " " + con1 + " "
-    // } else {
-    //   nameEquation = ''
-    // }
-    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL)  From ServiceMember__c WHERE " + rankEquation + skillEquation + " LIMIT 200");
+  static getSMEmail(email) {
+    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE Name ='" + email + "' AND isActive__c = true LIMIT 200");
   }
 
   static checkLogin(name, password) {
@@ -89,31 +57,31 @@ export default class UserForm {
   }
 
   static getServiceMemberInd(uname, upass) {
-    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE Name ='" + uname + "' AND Password__c='" + upass + "' LIMIT 200")
+    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE Name ='" + uname + "' AND Password__c='" + upass + "' AND isActive__c = true LIMIT 200")
   }
 
   static getCountsService() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Service Member'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Service Member' AND isActive__c = true")
   }
 
   static getCountsCommand() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Command Staff'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Command Staff' AND isActive__c = true")
   }
 
   static getCountsTraining() {
-    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Training Team'")
+    return http.get("data/v52.0/query?q=SELECT COUNT() From ServiceMember__c WHERE Staff_Designation__c = 'Training Team' AND isActive__c = true")
   }
 
   static getRankList(rankVal) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE GradeRank__c ='" + rankVal + "'")
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE GradeRank__c ='" + rankVal + "' AND isActive__c = true")
   }
 
   static getSkillsList(skill, val) {
-    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE " + skill + " ='" + val + "'")
+    return http.get("data/v52.0/query?q=SELECT FirstName__c, LastName__c , GradeRank__c, Current_Duty_Assignment__c, TAC__c, LOE__c, IT__c  From ServiceMember__c WHERE " + skill + " ='" + val + "' AND isActive__c = true")
   }
 
   static getServiceMemberByName(nameSearch) {
-    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE FirstName__c = '" + nameSearch + "' LIMIT 200")
+    return http.get("data/v52.0/query?q=SELECT FIELDS(ALL) From ServiceMember__c WHERE FirstName__c = '" + nameSearch + "' AND isActive__c = true LIMIT 200")
   }
 
   static getAuth(data) {

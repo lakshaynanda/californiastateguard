@@ -82,6 +82,8 @@
             @click="onSaveDisplay()"
             >Save</b-button
           >
+          <!-- <b-button @click="insertAllCols">Select All</b-button>
+          <b-button @click="deselectAll">Deselect All</b-button> -->
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -288,6 +290,7 @@ export default {
         country: "",
         litres: "",
       },
+      isActive: true,
       check: 0,
       editable: true,
       usersPresent: false,
@@ -373,6 +376,15 @@ export default {
     },
   },
   methods: {
+    insertAllCols() {
+      for(var i = 0; i < this.columnNames.length; i++) {
+        this.selected.push(this.columnNames[i].name)
+      }
+      console.log(this.selected)
+    },
+    deselectAll () {
+      this.selected = ["FirstName__c", "LastName__c", "GradeRank__c"]
+    },
     getColumns() {
       mainApi.getColumnNames().then((response) => {
         console.log(response.data.fields)

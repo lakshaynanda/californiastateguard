@@ -52,6 +52,14 @@
                 >
                   <a href="#" class="text-info">Register here</a>
                 </div>
+                <div
+                  id="register-link"
+                  class=""
+                  @click="forgotpass"
+                  style="margin-top: 2%; float: "
+                >
+                  <a href="#" class="text-info">Forgot Password</a>
+                </div>
               </form>
             </div>
           </div>
@@ -164,6 +172,9 @@ export default {
     },
     formPage() {
       this.$router.push("/form");
+    },
+    forgotpass() {
+      this.$router.push("/forgot")
     },
     showAlert() {
       this.dismissCountDown = this.dismissSecs;
